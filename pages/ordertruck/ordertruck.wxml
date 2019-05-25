@@ -1,0 +1,23 @@
+<!--pages/truck/truck.wxml-->
+<!-- <view wx:if="{{firstTruck == 0}}">
+  <view class='pop-shadow'></view>
+  <view class='pop-up pop-rule'>
+    <view class='pop-title'>货车定位查询条款</view>
+    <scroll-view class='pop-rule-content' scroll-y>
+      <view>尊敬的客户：</view>
+      <view wx:for="{{Rule}}">
+        <view class="pop-rule-item {{item.indent?'textIndent':''}}">{{item.info}}</view>
+      </view>
+    </scroll-view>
+    <view class='pop-bottom' bindtap='agreeRule'>同意并不再提醒</view>
+  </view>
+</view>
+
+<view wx:else> -->
+  <view class='location-map'>
+    <map id="truckmap" longitude="{{shopOrderDetail.gps.y}}" latitude="{{shopOrderDetail.gps.x}}" scale="18" markers="{{shopOrderDetail.gps.markers}}" bindcallouttap="truckcallout" show-location  style="width: 100%; height: 100%" />
+  </view>
+
+
+
+<!-- </view> -->

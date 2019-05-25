@@ -1,0 +1,103 @@
+/* pages/search/search.wxss */
+
+.search {
+  padding-left: 80rpx;
+}
+
+.search-icon {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  top: 20rpx;
+  left: 20rpx;
+}
+
+.trail-content {
+  background: #fff;
+  border-radius: 10rpx;
+  margin: 20rpx;
+  padding: 0 20rpx;
+  overflow: hidden;
+}
+
+.trail-head {
+  margin: 30rpx 0 20rpx;
+  font-size: 30rpx;
+  border-left: 4rpx solid #272d4d;
+  padding-left: 20rpx;
+}
+
+.trail-list {
+  padding: 30rpx 0 50rpx;
+}
+
+.trail-item {
+  position: relative;
+  border-left: 2rpx solid #e7e7e7;
+  margin-left: 24rpx;
+  padding: 0 0 20rpx 56rpx;
+}
+
+.trail-item .trail-item-circle {
+  display: block;
+  position: absolute;
+  width: 42rpx;
+  height: 42rpx;
+  border-radius: 50%;
+  left: -24rpx;
+  top: -5rpx;
+  background: #fff;
+  border: 4rpx solid #b5b5b5;
+  color: #999;
+  text-align: center;
+}
+
+.trail-item-circle .iconfont {
+  font-size: 34rpx;
+  line-height: 42rpx;
+}
+
+.trail-item:first-child .trail-item-circle {
+  background: #f05b48;
+  border: 4rpx solid #f9afa6;
+  color: #fff;
+}
+
+.trail-item-txt {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.trail-item-status {
+  font-size: 32rpx;
+  line-height: 40rpx;
+}
+
+.trail-item:first-child .trail-item-status,
+.trail-item:first-child .trail-item-detail:first-child {
+  color: #e50219;
+}
+
+.trail-item-detail {
+  margin: 10rpx 0 30rpx;
+  position: relative;
+}
+
+.trail-item-point {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  position: absolute;
+  background: #b5b5b5;
+  top: 15rpx;
+  left: -64rpx;
+}
+
+.trail-item-detail:first-child .trail-item-point {
+  display: none;
+}
+
+.trail-item-time {
+  font-size: 24rpx;
+  margin-top: 8rpx;
+}

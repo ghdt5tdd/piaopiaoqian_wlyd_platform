@@ -1,0 +1,118 @@
+/* pages/cargo/cargo.wxss */
+
+.cargo-content {
+  background: #fff;
+  margin-top: 20rpx;
+  padding: 0 20rpx;
+  overflow: hidden;
+}
+
+.cargo-title {
+  height: 30rpx;
+  line-height: 30rpx;
+  padding-left: 20rpx;
+  border-left: 6rpx solid #ff5102;
+  font-size: 30rpx;
+  margin: 40rpx 0 40rpx;
+}
+
+.cargo-list {
+  overflow: hidden;
+  margin: 0 -20rpx;
+}
+
+.cargo-item {
+  float: left;
+  width: calc(33.33333% - 60rpx);
+  margin: 20rpx 30rpx;
+}
+
+.cargo-item-name {
+  text-align: center;
+  font-size: 26rpx;
+  border: 2rpx solid #666;
+  color: #666;
+  border-radius: 10rpx;
+  line-height: 64rpx;
+}
+
+.cargo-item.selected .cargo-item-name {
+  border: 2rpx solid #ff5102;
+  color: #ff5102;
+  background: #fcf6eb;
+}
+
+.cargo-item.other {
+  width: calc(100% - 60rpx);
+  margin-bottom: 0;
+}
+
+.cargo-item.other .cargo-item-name {
+  width: calc(33.33333% - 44rpx);
+}
+
+.cargo-item input {
+  border: 2rpx solid #e7e7e7;
+  line-height: 62rpx;
+  height: 66rpx;
+  font-size: 28rpx;
+  margin: 40rpx 0;
+  padding: 0 20rpx;
+}
+
+.cargo-module {
+  border-top: 1px solid #e7e7e7;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10rpx 0 10rpx 20rpx;
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+
+.cargo-bar {
+  width: 50%;
+  display: flex;
+  margin: 20rpx 0;
+  align-items: center;
+  font-size: 30rpx;
+  position: relative;
+}
+
+.cargo-bar .must {
+  position: absolute;
+  top: 0;
+  left: -20rpx;
+  color: #e51c24;
+}
+
+.cargo-bar-title {
+  white-space: nowrap;
+  margin-right: 20rpx;
+}
+
+.cargo-pay {
+  display: flex;
+  font-size: 30rpx;
+  background: #fff;
+  padding: 40rpx 40rpx 20rpx;
+  margin-top: 20rpx;
+}
+
+.cargo-pay-info {
+  overflow: hidden;
+  width: calc(100% - 120rpx);
+}
+
+.cargo-pay-item {
+  display: flex;
+  align-items: center;
+  float: left;
+  margin: 0 0 20rpx 20rpx;
+  width: calc(50% - 20rpx);
+}
+
+.cargo-pay-item image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+}

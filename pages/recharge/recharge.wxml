@@ -1,0 +1,24 @@
+<!--pages/recharge/recharge.wxml-->
+  <view class="pay-total">
+      <text>充值金额：</text>
+      <view><input name="payTotal" type="digit" value="{{amount}}"  placeholder="请输入您的充值金额" bindinput='bindAmount' focus="{{focus}}" /></view>   
+  </view>
+ 
+  <view class="pay-num">
+    <view wx:for="{{paynum}}" data-select="{{item.select}}" class="num_item {{item.select == numSelect ? 'active':''}}" bindtap="chooseNum">
+      <view>{{item.name}}</view>
+      <image  src="{{numSelect === item.select? '../../images/gou.png' : ''}}"/>
+    </view>
+  </view>
+
+  <!-- <view class="pay-list">
+    <view wx:for="{{pays}}" data-select="{{item.select}}" class="pay_item {{item.select == paySelect ? 'active':''}}" bindtap="choosePay" data-name="{{item.payName}}">
+      <view class='pay-name' hidden>
+        {{item.payName}}
+      </view>
+      <image class='pay-image'  src="{{item.image}}"  />
+      <image class='pay-icon' src="{{item.icon}}" />
+    </view>
+  </view> -->
+
+<view class="button-bottom" bindtap="recharge">充值 </view>

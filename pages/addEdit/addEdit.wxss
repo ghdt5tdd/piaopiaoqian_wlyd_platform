@@ -1,0 +1,71 @@
+/* pages/addEdit/addEdit.wxss */
+
+.form-content {
+  height: calc(100vh - 170rpx);
+  overflow: hidden;
+}
+
+.section {
+  margin: 20rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+  font-size: 30rpx;
+}
+
+.section-bar {
+  border-bottom: 1px solid #e7e7e7;
+  line-height: 50rpx;
+  padding: 20rpx 0;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.section-bar:last-child {
+  border: none;
+}
+
+.section-title {
+  width: 170rpx;
+  text-align: right;
+}
+
+.section-info {
+  width: calc(100% - 170rpx);
+  overflow: hidden;
+  height: 50rpx;
+}
+
+.section-info input {
+  height: 50rpx;
+}
+
+.section-multiline .section-info {
+  min-height: 50rpx;
+  height: auto;
+  position: relative;
+  width: calc(100% - 240rpx);
+}
+
+.section-multiline .textvalue {
+  word-break: break-all;
+  word-wrap: break-word;
+  opacity: 0;
+}
+
+.section-multiline textarea {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.section-location {
+  position: absolute;
+  right: 0;
+  top: 20rpx;
+}

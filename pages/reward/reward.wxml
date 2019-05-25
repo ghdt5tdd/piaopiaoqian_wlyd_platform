@@ -1,0 +1,33 @@
+<!--pages/reward/reward.wxml-->
+<view class='wallet-head'>
+  <view class='wallet-head-name'>{{name}}</view>
+  <view class='wallet-head-info'>
+    <view class='wallet-head-account'>¥
+      <text>{{account}}</text>
+    </view>
+    <view class='wallet-head-opt' bindtap='{{toW}}'>{{opt}}</view>
+  </view>
+  <view class='wallet-head-icon iconfont icon-wallet'></view>
+</view>
+
+<view class="order-status">
+  <block wx:for="{{orderStatus}}" wx:key="key">
+    <view class="order-status-items {{firstStatus == index ? 'on':''}}" bindtap='selectStatus' data-index="{{index}}">
+      {{item.name}}
+    </view>
+  </block>
+</view>
+
+<scroll-view scroll-y="true" class='wallet-record'>
+  <view class='wallet-record-item' wx:for="{{record}}" wx:key="key">
+    <view class='wallet-record-left'>
+      <view class='wallet-record-name'>{{item.name}}</view>
+      <view class='wallet-record-account'>余额：¥{{item.account}}</view>
+    </view>
+    <view class='wallet-record-right'>
+      <view class='wallet-record-time'>{{item.time}}</view>
+      <view class='wallet-record-spec'>{{item.spec}}</view>
+    </view>
+  </view>
+</scroll-view>
+

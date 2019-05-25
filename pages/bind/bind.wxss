@@ -1,0 +1,42 @@
+/* pages/bind/bind.wxss */
+
+.bind-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 30rpx 20rpx;
+  line-height: 42rpx;
+  font-size: 30rpx;
+  background: #fff;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.bind-item-label {
+  width: 130rpx;
+  margin-right: 20rpx;
+  text-align: right;
+}
+
+.bind-item input {
+  width: calc(100% - 150rpx);
+  height: 42rpx
+}
+
+.codeBtn {
+  position: absolute;
+  line-height: 62rpx;
+  border: 1px solid #a1a6c3;
+  color: #404d91;
+  text-align: center;
+  width: 180rpx;
+  z-index: 2;
+  top:20rpx;
+  right: 20rpx;
+  font-size: 28rpx;
+  border-radius: 10rpx
+}
+
+codeBtn.on{
+  border-color: #ccc;
+  background: #ccc
+}

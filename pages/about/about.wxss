@@ -1,0 +1,70 @@
+/* pages/about/about.wxss */
+
+.forwarder-about {
+  margin-bottom: 20rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  line-height: 48rpx;
+  padding: 20rpx;
+}
+
+.forwarder-about-head {
+  position: relative;
+  padding: 10rpx 0 0 140rpx;
+  font-size: 34rpx;
+  height: 126rpx;
+}
+
+.forwarder-about-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120rpx;
+  height: 120rpx;
+  border: 1px solid #e7e7e7;
+}
+
+.forwarder-about-spec {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+
+.forwarder-about-introduce {
+  padding: 20rpx 0 0;
+  border-top:1px solid #e7e7e7;
+  margin-top: 20rpx
+}
+
+.forwarder-about-introduce> view {
+  font-size: 30rpx;
+  line-height: 40rpx;
+  margin-bottom: 20rpx;
+  text-indent: 2em;
+}
+
+.forwarder-about-info {
+  padding: 20rpx;
+  margin-top: 20rpx;
+  background: #fff
+}
+
+.forwarder-about-bar {
+  display: flex;
+  align-items: flex-start;
+  font-size: 28rpx;
+  margin-top: 10rpx;
+  line-height: 40rpx;
+  padding: 10rpx 0
+}
+
+.forwarder-about-bar image {
+  width: 36rpx;
+  height: 36rpx;
+  margin: 2rpx 20rpx 0 0;
+}
+

@@ -1,0 +1,111 @@
+<!--pages/cash/cash.wxml-->
+<form bindsubmit="formSubmit" report-submit="true">
+
+  <view class="cash-info">
+    <view class="item">
+      <text>银行卡号</text>
+      <view class="right">
+        <input name="id" type="text" placeholder="请填写您的提现银行卡号" focus="{{focus}}" />
+      </view>
+    </view>
+
+    <view class="item">
+      <text>持卡人</text>
+      <view class="right">
+        <input name="name" type="text" placeholder="请填写您的姓名" focus="{{focus}}" />
+      </view>
+    </view>
+
+    <view class="item count">
+      <text>提现金额</text>
+      <view class="right">
+        <input name="count" type="digit" placeholder="当前可提现{{count}}" focus="{{focus}}" value="{{countvalue}}" />
+      </view>
+      <view class='style-red' bindtap="countValue">全额</view>
+    </view>
+
+    <view class="item password">
+      <text>支付密码</text>
+      <view class="right">
+        <input name="password" type="password" placeholder="请输入支付密码" focus="{{focus}}" />
+      </view>
+      <view class='style-blue' bindtap="toPassword">忘记密码</view>
+    </view>
+
+  </view>
+
+  <view class="cash-pay">手续费：
+    <text class='style-red'>{{pay}}</text>元
+  </view>
+
+  <view class="cash-rule">
+    <checkbox-group name="marks">
+      <label class="checkbox">
+        <checkbox checked="sendCheck" color="#e52019" /> 我同意
+      </label>
+      <text class="style-red" bindtap="showRule">《充值提现条约》</text>
+    </checkbox-group>
+  </view>
+
+
+  <view class="pop-shadow" hidden="{{hideShadow}}" bindtap="hide"></view>
+  <view class='pop-up pop-rule' hidden="{{hideRule}}">
+    <view class='pop-cancel' bindtap='hideRule'>
+      <icon type='clear'></icon>
+    </view>
+    <view class='pop-title'>充值提现条约</view>
+    <scroll-view class='pop-rule-content' scroll-y>
+      <view wx:for="{{Rule}}" wx:key="key">
+        <view class="pop-rule-item {{item.indent?'textIndent':''}}">{{item.info}}</view>
+      </view>
+    </scroll-view>
+    <view class='pop-bottom' bindtap='hideRule'>同意</view>
+  </view>
+
+
+  <view class="pop-up pop-password" hidden="{{hidePassword}}">
+    <view class='pop-title'>设置支付密码</view>
+    <scroll-view class="pop-password-content" scroll-y>
+
+      <view class='pop-password-info'>
+        <view class="item code">
+          <text>手机号</text>
+          <view class="right">
+            <input name="tel" type="tel" placeholder="请输入登录手机号" focus="{{focus}}" />
+          </view>
+          <view class='item-code'>
+            <view class='getcode' wx:if="{{isGet == false}}" bindtap='getCode'>获取验证码</view>
+            <view class='resendcode' wx:if="{{isGet == true}}">重新发送({{sec}})</view>
+          </view>
+        </view>
+
+        <view class="item">
+          <text>验证码</text>
+          <view class="right">
+            <input name="code" type="text" placeholder="请输入手机验证码" focus="{{focus}}" />
+          </view>
+        </view>
+
+        <view class="item">
+          <text>支付密码</text>
+          <view class="right">
+            <input name="password" type="password" placeholder="{{password}}" focus="{{focus}}" bindinput="password" />
+          </view>
+        </view>
+        <view class="item">
+          <text>支付密码</text>
+          <view class="right">
+            <input name="password2" type="password" placeholder="{{password2}}" focus="{{focus}}" bindinput="password2" />
+          </view>
+        </view>
+      </view>
+      <view class='password-tip' hidden='{{passwordTip}}'>两次密码不一致</view>
+
+    </scroll-view>
+    <view class='pop-bottom' bindtap='hidePassword'>确认提交</view>
+  </view>
+
+
+
+  <button class="button-bottom" formType="submit">提现</button>
+</form>

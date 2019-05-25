@@ -1,0 +1,99 @@
+<!--pages/waybill/waybill.wxml-->
+<view class='waybill-block'>
+  <view class='waybill-title'>
+    <view class='waybill-status'>{{shopOrderDetail.order_state}}</view>
+    <view class='waybill-time'>{{shopOrderDetail.start_departing_date}}</view>
+  </view>
+  <view class='waybill-introduce'>
+    <view class='waybill-introduce-item'>
+      <view class='waybill-introduce-label'>运单号</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.bill_no}}</view>
+    </view>
+    <view class='waybill-introduce-item'>
+      <view class='waybill-introduce-label'>托运区间</view>
+      <view class='waybill-introduce-info'>
+        <view class='waybill-introduce-route'>
+          <view class='waybill-introduce-point'>{{shopOrderDetail.consignment_station_name}}</view>
+          <image mode="widthFix" src="../../images/arrow.png"></image>
+          <view class='waybill-introduce-point'>{{shopOrderDetail.receiving_station_name}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='waybill-introduce-item'>
+      <view class='waybill-introduce-label'>收货人</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.consigner_name}} {{shopOrderDetail.consigner_tel}}</view>
+    </view>
+    <view class='waybill-introduce-item'>
+      <view class='waybill-introduce-label'>发货人</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.consignee_name}} {{shopOrderDetail.consignee_tel}}</view>
+    </view>
+
+  </view>
+</view>
+
+<view class='waybill-block'>
+  <view class='waybill-head'>货物信息</view>
+  <view class='waybill-introduce'>
+    <view class='waybill-introduce-item'>
+      <view class='waybill-introduce-label'>货物名称</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.goods_name}}</view>
+    </view>
+    <view class='waybill-introduce-item'>
+      <view class='waybill-introduce-label'>件数</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.total_packing_quantity}}件</view>
+    </view>
+    <view class='waybill-introduce-item'>
+      <view class='waybill-introduce-label'>重量体积</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.total_weight}}kg {{shopOrderDetail.total_volume}}m³</view>
+    </view>
+    <!-- <view class='waybill-introduce-item'>
+      <view class='waybill-introduce-label'>增值服务</view>
+      <view class='waybill-introduce-info'>
+        <text>代收 ¥{{collect}}</text>
+        <text>保价 ¥{{support}}</text>
+      </view>
+    </view> -->
+    <!-- <view class='waybill-introduce-item'>
+      <view class='waybill-introduce-label'>运单费用</view>
+      <view class='waybill-introduce-info'>
+        <text>运费 ¥{{freight}}</text>
+        <text>送货费 ¥{{delivery}}</text>
+      </view>
+    </view> -->
+    <view class='waybill-introduce-item'>
+      <view class='waybill-introduce-label'>备注信息</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.remark}}</view>
+    </view>
+  </view>
+</view>
+
+<view class='waybill-block' wx:if="{{shopOrderNodes}}">
+  <view class='waybill-head'>物流轨迹</view>
+  <view class='trail-opt'>
+    <view bindtap='toLoaction' >车辆定位</view>
+    <!-- <view bindtap='aspect'>签收图片</view> -->
+  </view>
+  <view class='trail-list'>
+    <view wx:for="{{shopOrderNodes}}" wx:key="node_state" class="trail-item">
+      <view class="trail-item-circle">
+        <!-- <view wx:if="{{index === 0}}" class='iconfont icon-gou'></view>
+        <view class='iconfont icon-expressman'></view>
+        <view class='iconfont icon-gou'></view>
+        <view class='iconfont icon-gou'></view> -->
+      </view>
+      <view class="trail-item-txt">
+        <view class="trail-item-status">{{item.node_state_text}}</view>
+        <view class='trail-item-content'>
+          <view class='trail-item-detail'>
+            <view class='trail-item-point'></view>
+            <view class="trail-item-info">{{item.node_content}}</view>
+            <view class="trail-item-time">
+              <view>{{item.createData}}</view>
+              <view>{{item.createTime}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

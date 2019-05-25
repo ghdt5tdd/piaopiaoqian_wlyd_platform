@@ -1,0 +1,127 @@
+<!--pages/index/index.wxml-->
+<view class='search-scan'>
+  <image class='search-bg' mode="widthFix" src='../../images/scanbg.png'></image>
+  <view class='search-info'>
+    <input placeholder-style="color:#fff;" confirm-type="search" placeholder='扫描/输入运单查询' bindconfirm="confirmInput"></input>
+  </view> 
+  <image class='search-icon' src='../../images/scan.png' bindtap='scanShopOrder'></image>
+</view>
+
+<view class='topage'>
+  <view bindtap='toSend' class='navigator' >
+    <image src='../../images/nav_send.png'></image>
+    <view>我要发货</view>
+  </view>
+  <view bindtap='toOrder' class='navigator'>
+    <image src='../../images/nav_order.png'></image>
+    <view>订单记录</view>
+  </view>
+  <view bindtap='toAdd' class='navigator' >
+    <image src='../../images/nav_book.png'></image>
+    <view>地址管理</view>
+  </view>
+  <view bindtap='toMy' class='navigator'>
+    <image src='../../images/nav_my.png'></image>
+    <view>个人中心</view>
+  </view>
+</view>
+
+<scroll-view scroll-y class='order-content' wx:if="{{bookingOrders.length > 0}}" bindscrolltolower="lower">
+  <view class='order-list'>
+    <view class='order-bar' wx:for="{{bookingOrders}}" wx:key="id" bindtap='toInfo' data-id="{{item.id}}" >
+      <view class='order-bar-head'>
+        <view class='order-bar-id'>订单号
+          <text>{{item.code}}</text>
+        </view>
+        <view class='order-bar-time'>{{item.create_date}}</view>
+      </view>
+      <view class='order-bar-content'>
+        <view class='order-bar-info'>
+          <view class='order-bar-send'>
+            <view class='order-bar-city'>{{item.consigner_city_name}}</view>
+            <view>{{item.consigner_man}}</view>
+          </view>
+          <view class='order-bar-status s1'>
+            <text class='order-bar-line'></text>
+            <block wx:if="{{item.state === '100'}}"> 
+              <image  src='../../images/order1.png' mode="widthFix"></image>
+            </block>
+            <block wx:elif="{{item.state === '240'}}"> 
+              <image  src='../../images/order2.png' mode="widthFix"></image>
+            </block>
+          </view>
+          <view class='order-bar-recive'>
+            <view class='order-bar-city'>{{item.consignee_city_name}}</view>
+            <view>{{item.consignee_man}}</view>
+          </view>
+        </view> 
+        <view class='order-bar-cargo'>
+          <view>货物类型：{{item.goods_class_name}}</view>
+          <view>货物件数：{{item.total_packing_quantity}}件</view>
+        </view>
+        <!-- <view class='order-bar-cargo'>
+            承运商：{{item.carrier_name}}
+        </view> -->
+      </view>
+      <view class='order-bar-other'>
+          <view class='order-bar-opt'>
+            <view class='order-opt-more' wx:if="{{item.hide_command_list && item.hide_command_list.length > 0}}" data-index="{{index}}" catchtap="optmore">更多</view>
+
+              <view>
+                <view class="order-opt-item on" wx:for="{{item.show_command_list}}" wx:for-item="showCommand" wx:key="command"wx:for-index="showCommandIndex"  catchtap='handCommand' data-id="{{item.id}}" data-index="{{index}}" data-code="{{item.code}}" data-command="{{showCommand.command}}" data-command-text="{{showCommand.command_text}}">
+                  {{showCommand.command_text}}
+                </view>
+              </view>
+
+              <view wx:if="{{item.showMore}}" class='order-opt-float'>
+                <view class="order-opt-item on" wx:for="{{item.hide_command_list}}" wx:for-item="hideCommand"  wx:key="command" wx:for-index="hideCommandIndex"  catchtap='handCommand' data-id="{{item.id}}" data-index="{{index}}" data-code="{{item.code}}" data-command="{{hideCommand.command}}" data-command-text="{{hideCommand.command_text}}">
+                  {{hideCommand.command_text}}
+                </view>
+              </view>
+
+          </view>
+        </view>
+    </view>
+  </view>
+</scroll-view>
+
+<view class='order-none' wx:else>
+  <image src='../../images/empty_order.png' mode="widthFix"></image>
+  <view>暂无订单数据</view>
+  <button bindtap='button' bindtap='refesh'>刷新</button>
+</view>
+
+<view class='pop-shadow' bindtap="hide" hidden="{{hideShadow}}"></view>
+<view class='pop-up pop-pickup' hidden="{{hideOrdering}}">
+  <view class='pop-head-left orange'>订单信息</view>
+  <view class='pop-pickup-content'>
+    <view class='pop-pickup-item'>
+      <view class='pop-pickup-label'>货物类型</view>
+      <view class='pop-pickup-name'>{{selectOrder.goods_class_name}}</view>
+    </view>
+    <view class='pop-pickup-item'>
+      <view class='pop-pickup-label'>重量(kg)</view>
+      <view class='pop-pickup-name'>{{selectOrder.total_weight}}</view>
+    </view>
+    <view class='pop-pickup-item'>
+      <view class='pop-pickup-label'>体积(m³)</view>
+      <view class='pop-pickup-name'>{{selectOrder.total_volume}}</view>
+    </view>
+    <view class='pop-pickup-item'>
+      <view class='pop-pickup-label'>件数</view>
+      <view class='pop-pickup-name'>{{selectOrder.total_packing_quantity}}</view>
+    </view>
+    <view class='pop-pickup-item'>
+      <view class='pop-pickup-label'>用户留言</view>
+      <view class='pop-pickup-name'>{{selectOrder.remark}}</view>
+    </view> 
+  </view>
+  <view class='pop-bottom-half'>
+    <view class='pop-bottom-opt'  bindtap="hide">
+      取消
+    </view> 
+    <view class='pop-bottom-opt orange'  bindtap="sureOrder">
+      确认下达
+    </view>
+  </view>
+</view>

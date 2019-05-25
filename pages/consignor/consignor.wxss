@@ -1,0 +1,2 @@
+/* pages/consignor/consignor.wxss */
+@import '../receiver/receiver.wxss';

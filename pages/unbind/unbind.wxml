@@ -1,0 +1,21 @@
+<!--pages/bind/bind.wxml-->
+  <view class='bind-content'>
+    <view class="bind-item">
+      <view class='bind-item-label'>手机号码</view>
+      <input type="number" value="{{tel}}" bindinput='getPhoneValue' disabled placeholder="11位手机号" />
+    </view>
+    <view class="bind-item">
+      <view class='bind-item-label'>验证码</view>
+      <input type="text" name="code" bindinput='getCodeValue' placeholder="输入验证码" />
+      <button class="codeBtn {{codetype ? 'on':''}}" bindtap='getVerificationCode' disabled='{{disabled}}'>{{codename}}</button>
+    </view>
+    <view class="bind-item">
+      <view class='bind-item-label'>真实姓名</view>
+      <input type="text" name="id" placeholder="真实姓名" disabled value="{{true_name}}" bindinput='getTrueName' />
+    </view>
+    <!-- <view class="bind-item">
+      <view class='bind-item-label'>客户代号</view>
+      <input type="text" name="id" placeholder="项目客户可输入，其他客户自动生成" />
+    </view> -->
+  </view>
+  <button class='button-bottom' bindtap='toFirst'>确认</button>

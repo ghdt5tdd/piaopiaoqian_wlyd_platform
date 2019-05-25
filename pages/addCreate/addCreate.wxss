@@ -1,0 +1,2 @@
+/* pages/addCreate/addCreate.wxss */
+@import '../addEdit/addEdit.wxss';

@@ -1,0 +1,140 @@
+/* pages/cash/cash.wxss */
+
+.cash-info {
+  background-color: #fff;
+  padding: 0 20rpx
+}
+
+.item {
+  height: 90rpx;
+  align-items: center;
+  display: flex;
+  border-bottom: 1rpx solid #eee;
+  font-size: 30rpx;
+}
+
+.item:last-child {
+  border: none;
+}
+
+.item text {
+  width: 140rpx;
+}
+
+.right {
+  padding-left: 20rpx;
+  width: calc(100% - 170rpx);
+  display: flex;
+}
+
+.item input {
+  width: 100%;
+}
+
+.item.count .right {
+  width: calc(100% - 240rpx);
+}
+
+.item.password .right {
+  width: calc(100% - 300rpx);
+}
+
+.cash-pay {
+  font-size: 32rpx;
+  line-height: 40rpx;
+  padding: 20rpx ;
+}
+
+.cash-rule {
+  display: flex;
+  padding: 20rpx 0 0 20rpx;
+  font-size: 32rpx;
+}
+
+
+/*服务条款弹窗*/
+
+.pop-rule {
+  top: 10%;
+  left: 7%;
+  width: 86%;
+  height: 80%;
+  border-radius: 10rpx 10rpx;
+  overflow: hidden;
+}
+
+.pop-rule .pop-title{
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 34rpx;
+  border-bottom: 1px dashed #e7e7e7;
+}
+
+.pop-rule-content {
+  height: calc(100% - 230rpx);
+  width: calc(100% - 40rpx);
+  margin: 20rpx;
+  font-size: 28rpx;
+  line-height: 48rpx;
+}
+
+.textIndent {
+  text-indent: 2em;
+}
+
+/*重置密码弹窗*/
+
+.pop-password {
+  width: 86%;
+  height: 680rpx;
+  top: 50%;
+  margin-top: -340rpx;
+  left: 7%;
+  overflow: hidden;
+  border-radius: 10rpx 10rpx;
+}
+
+
+.pop-password  .pop-title {
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 34rpx;
+}
+
+.pop-password-content {
+  height: calc(100% - 190rpx);
+  width: calc(100% - 40rpx);
+  margin:0 20rpx;
+  font-size: 28rpx;
+  line-height: 48rpx;
+}
+
+
+.item.code .right {
+  width: calc(100% - 350rpx);
+}
+
+.item-code {
+  margin: -20rpx 0;
+}
+
+.getcode, .resendcode {
+  text-align: center;
+  width: 190rpx;
+  background: #faaf18;
+  color: #fff;
+  padding: 20rpx 0;
+  line-height: 40rpx;
+  font-size: 30rpx;
+}
+
+.resendcode {
+  background: #ddd;
+  color: #333;
+}
+
+.password-tip {
+  padding: 20rpx 0;
+  line-height: 40rpx;
+  color: #e52019;
+}

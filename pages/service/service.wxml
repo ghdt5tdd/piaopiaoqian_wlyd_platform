@@ -1,0 +1,20 @@
+<!--pages/service/service.wxml-->
+  <view class='section'>
+    <view class="section-bar" wx:for="{{myServices}}"  wx:key="set_id">
+      <view class="section-title">{{item.name}}</view>
+      <view class="section-info">
+        <block wx:if="{{item.html_items === 'radio'}}">
+          <picker bindchange="selectRadio" data-index="{{index}}" data-text="{{item.html_items_dic[item.value].itemText}}" range-key="itemText"  value="item.html_items_dic[item.value].itemKey" 
+          range="{{item.html_items_dic}}">
+          <view class="picker">
+            {{item.html_items_dic[item.value].itemText}}
+          </view>
+          </picker>
+        </block>
+        <block wx:else>
+          <input name="support" type='text' bindinput='bindInput' value="{{item.value}}" data-index="{{index}}"></input>
+        </block>
+      </view>
+    </view> 
+  </view>
+  <button class='button-bottom' bindtap='formSubmit'>确认</button>

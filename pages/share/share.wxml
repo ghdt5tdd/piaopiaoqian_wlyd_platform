@@ -1,0 +1,40 @@
+<!--pages/share/share.wxml-->
+<view class="friend-banner">
+  <image src="{{banner}}" mode='widthFix' />
+</view>
+
+<view class="friend-count">
+  <view class="friend-count-num">已邀请：
+    <text>{{friendTotalman}}</text>人
+  </view>
+  <view class="friend-count-bonus">累计奖励：
+    <text>{{friendTotalnum}}</text>元
+    <view class="friend-count-to" bindtap="toReward">奖励账户</view>
+  </view>
+</view>
+<scroll-view class="friend-list" scroll-y>
+  <view class="friend-block" wx:for="{{friendList}}" wx:key="id">
+    <view class="friend-rank">{{item.rank}}</view>
+    <image class="friend-avatar" src="{{item.avatar}}" />
+    <view class="friend-info">
+      <view class="friend-name">{{item.name}}</view>
+      <view class="friend-time">{{item.time}}</view>
+    </view>
+  </view>
+</scroll-view>
+
+<view class='fixed-bottom' bindtap='showShare'>邀请好友</view>
+
+<view class="pop-shadow" hidden="{{hideShadow}}" bindtap="hide"></view>
+<view class='pop-up pop-share' hidden="{{hideShare}}">
+  <view class='pop-share-head'>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+    <view class="userinfo-tip">{{sharetip}}</view>
+  </view>
+  <view class='pop-share-content'>
+    <image src='{{sharebanner}}' mode='widthFix'></image>
+    <view class='pop-share-info'>欢迎使用物流云店小程序</view>
+  </view>
+  <view class='button-bottom' bindtap='hideShare'>分享</view>
+</view>

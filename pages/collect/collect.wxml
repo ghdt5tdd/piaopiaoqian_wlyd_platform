@@ -1,0 +1,66 @@
+<!--pages/collect/collect.wxml-->
+<form bindsubmit="formSubmit" report-submit="true">
+  <view class='form-content'>
+    <view class='form-block'>
+      <view class='form-block-head'>
+        <image src='../../images/num1.jpg'></image>
+        <view>填写基本信息</view>
+      </view>
+      <view class='form-base'>
+        <view class='form-base-item'>
+          <view class='form-base-label'>公司名称</view>
+          <input placeholder='输入公司名称'></input>
+        </view>
+        <view class='form-base-item'>
+          <view class='form-base-label'>公司地址</view>
+          <input placeholder='输入公司地址'></input>
+        </view>
+        <view class='form-base-item'>
+          <view class='form-base-label'>开户人</view>
+          <input placeholder='输入收款人姓名'></input>
+        </view>
+        <view class='form-base-item'>
+          <view class='form-base-label'>开户电话</view>
+          <input placeholder='输入收款人电话' type='number'></input>
+        </view>
+        <view class='form-base-item'>
+          <view class='form-base-label'>开户银行</view>
+          <input placeholder='输入开户银行名称'></input>
+        </view>
+        <view class='form-base-item'>
+          <view class='form-base-label'>银行卡号</view>
+          <input placeholder='输入开户银行账号' type='number'></input>
+        </view>
+        <view class='form-base-item'>
+          <view class='form-base-label'>身份证号码</view>
+          <input placeholder='输入身份证号码' type='idcard'></input>
+        </view>
+      </view>
+    </view>
+
+
+    <view class='form-block'>
+      <view class='form-block-head'>
+        <image src='../../images/num2.jpg'></image>
+        <view>上传身份证明</view>
+      </view>
+      <view class='form-upload'>
+        <image bindtap="changePicface" src="{{realPicface}}"  />
+        <image bindtap="changePicback" src="{{realPicback}}"  />
+      </view>
+    </view>
+
+    <view class='form-block'>
+      <view class='form-block-head'>
+        <image src='../../images/num3.jpg'></image>
+        <view>上传银行卡正反面</view>
+      </view>
+      <view class='form-upload'>
+          <image bindtap="changePicid1" src="{{realPicid1}}"  />
+          <image bindtap="changePicid2" src="{{realPicid2}}"  />
+      </view>
+    </view>
+
+  </view>
+  <button class='button-bottom' formType="submit">提交</button>
+</form>

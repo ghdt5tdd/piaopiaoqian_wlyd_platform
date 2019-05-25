@@ -1,0 +1,28 @@
+<!--pages/about/about.wxml-->
+<view class='forwarder-about'>
+  <view class='forwarder-about-head'>
+    <image class='forwarder-about-logo' src='{{companyInfo.logo_img}}'></image>
+    <view class='forwarder-about-name'>{{companyInfo.company}}</view>
+    <view class='forwarder-about-spec'>{{companyInfo.remark}}</view>
+  </view>
+  <view class='forwarder-about-introduce'>
+    <view>
+      {{companyInfo.profile}}
+    </view>
+  </view>
+</view>
+
+<view class='forwarder-about-info'>
+  <view class='forwarder-about-bar' bindtap='bookTel' data-tel="{{companyInfo.service_hotline}}">
+    <image src='../../images/send-tel.png'></image>
+    <view>{{companyInfo.service_hotline}}</view>
+  </view>
+  <view class='forwarder-about-bar'>
+    <image src='../../images/send-by.png'></image>
+    <view>{{companyInfo.service_items}}</view>
+  </view>
+  <view class='forwarder-about-bar' bindtap='networkMap' data-location="{{companyInfo.location}}" data-address="{{companyInfo.address}}">
+    <image src='../../images/send-location.png'></image>
+    <view>{{companyInfo.address}}</view>
+  </view>
+</view>

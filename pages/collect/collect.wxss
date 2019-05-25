@@ -1,0 +1,64 @@
+/* pages/collect/collect.wxss */
+
+.form-block {
+  margin: 20rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+  padding: 0 20rpx;
+}
+
+.form-block-head {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  padding: 30rpx 0;
+}
+
+.form-block-head image {
+  width: 46rpx;
+  height: 46rpx;
+  margin-right: 10rpx;
+}
+
+.form-base {
+  padding-left: 40rpx;
+  font-size: 30rpx;
+}
+
+.form-base-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 30rpx 0;
+  border-bottom: 1px solid #e7e7e7;
+  line-height: 40rpx;
+}
+
+.form-base-item:last-child {
+  border: none;
+}
+
+.form-base-label {
+  width: 160rpx;
+  margin-right: 20rpx;
+  text-align: right;
+  margin-left: -20rpx;
+}
+
+.form-base-item  input {
+  width: calc(100% - 150rpx);
+  height: 40rpx;
+}
+
+.form-upload{
+  text-align: center
+}
+
+.form-upload image {
+  width: 258rpx;
+  height: 157rpx;
+  margin: 20rpx;
+  vertical-align: center;
+  overflow: hidden
+}
+

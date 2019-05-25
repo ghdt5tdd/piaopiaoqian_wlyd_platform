@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/trail/trail",
+    "pages/send/send",
+    "pages/addSend/addSend",
+    "pages/addReceive/addReceive",
+    "pages/addCreate/addCreate",
+    "pages/addEdit/addEdit",
+    "pages/mapLocation/mapLocation",
+    "pages/mapLocation/searchMapLocation/searchMapLocation",
+    "pages/cargo/cargo",
+    "pages/service/service",
+    "pages/order/order",
+    "pages/orderinfo/orderinfo",
+    "pages/addList/addList",
+    "pages/my/my",
+    "pages/bind/bind",
+    "pages/unbind/unbind",
+    "pages/forwarder/forwarder",
+    "pages/consignor/consignor",
+    "pages/receiver/receiver",
+    "pages/wallet/wallet",
+    "pages/recharge/recharge",
+    "pages/about/about",
+    "pages/share/share",
+    "pages/reward/reward",
+    "pages/cash/cash",
+    "pages/logistics/logistics",
+    "pages/ordertruck/ordertruck",
+    "pages/ordertrail/ordertrail",
+    "pages/waybill/waybill",
+    "pages/sendwaybill/sendwaybill",
+    "pages/collect/collect"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#272d4d",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,77 @@
+/* pages/addSend/addSend.wxss */
+
+.address-content {
+  height: calc(100vh - 290rpx);
+}
+
+.address-list {
+  padding: 0 20rpx;
+}
+
+.address-item {
+  margin-bottom: 20rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  line-height: 48rpx;
+}
+
+.address-item:last-child {
+  margin-bottom: 0;
+}
+
+.address-item-info {
+  border-bottom: 1px solid #e7e7e7;
+  padding: 20rpx 30rpx;
+  color: #666;
+}
+
+.address-item-name {
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 10rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.address-item-opt {
+  padding: 20rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 40rpx;
+}
+
+.address-item-opt image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.address-item-button, .address-opt-list {
+  display: flex;
+  align-items: center;
+}
+
+.address-opt-list  view {
+  margin-left: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.address-opt-list  image {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.address-empty {
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+  height: calc(100vh - 290rpx);
+}
+
+.address-empty image {
+  width: 30%;
+  margin: 30% 0 20rpx;
+}

@@ -1,0 +1,32 @@
+<!--pages/wallet/wallet.wxml-->
+<view class='wallet-head'>
+  <view class='wallet-head-name'>可用余额</view>
+  <view class='wallet-head-info'>
+    <view class='wallet-head-account'>¥
+      <text>{{account}}</text>
+    </view>
+    <view class='wallet-head-opt' bindtap='toRecharge'>去充值</view>
+  </view>
+  <view class='wallet-head-icon iconfont icon-wallet'></view>
+</view>
+
+<view class="order-status">
+  <block wx:for="{{orderStatus}}" wx:key="item.value">
+    <view class="order-status-items {{firstStatus == item.value ? 'on':''}}" bindtap='selectStatus' data-index="{{item.value}}">
+      {{item.name}}
+    </view>
+  </block>
+</view>
+
+<scroll-view scroll-y="true" class='wallet-record' style="height:calc(100%);position:fixed;"  bindscrolltolower="lower">
+  <view class='wallet-record-item' wx:for="{{record}}" wx:key="item.id">
+    <view class='wallet-record-left'>
+      <view class='wallet-record-name'>{{item.remark}}</view>
+      <!-- <view class='wallet-record-account'>消费：¥{{item.amount}}</view> -->
+    </view>
+    <view class='wallet-record-right'>
+      <view class='wallet-record-time'>{{item.create_date}}</view>
+      <view class='wallet-record-spec'>{{item.action === 0 ? '-':'+'}}{{item.amount}}</view>
+    </view>
+  </view>
+</scroll-view>

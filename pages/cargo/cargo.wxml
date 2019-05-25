@@ -1,0 +1,55 @@
+<!--pages/cargo/cargo.wxml-->
+<form bindsubmit="formSubmit" report-submit="true">
+  <view class='cargo-content'>
+    <view class='cargo-title'>货物类型</view>
+    <view class='cargo-list'>
+      <view class="cargo-item {{item.input?'other':''}} {{cargo.id == item.id?'selected':''}} " wx:for="{{cargoList}}" bindtap='selectname' data-index="{{index}}">
+        <view class='cargo-item-name'>{{item.name}}</view>
+        <input name="name" wx:if="{{item.input}}" placeholder='请输入货物类型'></input>
+      </view>
+    </view>
+
+    <view class='cargo-module'>
+      <view class="cargo-bar">
+        <text class='must'>*</text>
+        <view class="cargo-bar-title">件数</view>
+        <view class="cargo-bar-info">
+          <input name="num" type='number' placeholder='输入件数' value="{{count}}" bindinput='bindInput' data-key="count"></input>
+        </view>
+      </view>
+      <view class="cargo-bar">
+        <view class="cargo-bar-title">体积(m³)</view>
+        <view class="cargo-bar-info">
+          <input name="cub" type='digit' placeholder='输入体积' value="{{volumn}}" bindinput='bindInput' data-key="volumn"></input>
+        </view>
+      </view>
+      <view class="cargo-bar">
+        <view class="cargo-bar-title">包装</view>
+        <view class="cargo-bar-info">
+          <input name="pack" type='text' placeholder='输入货物包装' value="{{packaged}}" bindinput='bindInput' data-key="packaged"></input>
+        </view>
+      </view>
+      <view class="cargo-bar">
+        <view class="cargo-bar-title">重量(kg)</view>
+        <view class="cargo-bar-info">
+          <input name="weight" type='digit' placeholder='输入重量'  value="{{weight}}" bindinput='bindInput' data-key="weight"></input>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='cargo-pay'>
+    <view class='cargo-pay-label'>结算方式</view>
+    <view class='cargo-pay-info'>
+      <view class="cargo-pay-item" wx:for="{{settlementMode}}" bindtap='selectpay' data-index="{{index}}">
+        <image src='{{selectMode.itemKey === item.itemKey ? "../../images/check.png" : "../../images/uncheck.png"}}'></image>
+        <view>{{item.itemText}}</view>
+      </view>
+    </view>
+  </view>
+
+
+
+  <button class='button-bottom' formType="submit" data-name="{{cargoName}}">确认</button>
+
+</form>

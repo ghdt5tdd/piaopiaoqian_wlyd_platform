@@ -1,0 +1,125 @@
+<!--pages/send/send.wxml-->
+<view class='send-address'>
+  <view class='send-address-item' bindtap='toSend'>
+    <image class='send-address-pic' src='../../images/w_send.png'></image>
+    <view class='send-address-default' wx:if="{{WSend}}">请选择寄件地址</view>
+    <view class='send-address-info' wx:else>
+      <view class='send-address-name'>
+        <text>{{sendAddr.sendName}}</text>
+        <text>{{sendAddr.sendTel}}</text>
+      </view>
+      <view class='send-address-location'>
+        {{sendAddr.sendLocation}}
+      </view>
+    </view>
+    <image class='send-address-next' src='../../images/w_next.png'></image>
+  </view>
+  <view class='send-address-item' bindtap='toReceive' wx:if="{{order_is_need_receiver}}">
+    <image class='send-address-pic' src='../../images/w_receive.png'></image>
+    <view class='send-address-default' wx:if="{{WReceive}}">请选择收件地址</view>
+    <view class='send-address-info' wx:else>
+      <view class='send-address-name'>
+        <text>{{receiveAddr.receiveName}}</text>
+        <text>{{receiveAddr.receiveTel}}</text>
+      </view>
+      <view class='send-address-location'>
+        {{receiveAddr.receiveLocation}}
+      </view>
+    </view>
+    <image class='send-address-next' src='../../images/w_next.png'></image>
+  </view>
+</view>
+
+<view class='send-block'>
+  <view class='send-block-item' bindtap='toCargo'>
+    <view class='send-block-label'>货物信息</view>
+    <view class='send-block-default' wx:if="{{WCargo}}">必填</view>
+    <view class='send-block-info' wx:else>
+      <view>{{cargo.cargoType.name}} {{cargo.cargoNum + "件"}}</view>
+      <view>{{cargo.cargoPack}} {{cargo.cargoWeight + "kg"}} {{cargo.cargoVolumn + "m³"}}</view>
+    </view>
+    <image class='send-block-next' src='../../images/w_next.png'></image>
+  </view>
+  <view class='send-block-item' bindtap='toService'>
+    <view class='send-block-label'>增值服务</view>
+    <view class='send-block-default' wx:if="{{WService}}">选填</view>
+    <view class='send-block-info' wx:else>
+      <view wx:for="{{tServices}}" wx:key="set_id">{{item.name}} <block wx:if="{{item.html_items === 'radio'}}">{{item.text}} </block><block wx:else>{{item.value}} </block></view>
+    </view>
+    <image class='send-block-next' src='../../images/w_next.png'></image>
+  </view>
+</view>
+
+<view class='send-block'>
+  <view class='send-bar send-bar-forwarder' wx:if="{{order_is_need_carrier}}" bindtap='toforwarder'>
+    <view class='send-bar-label'>承运商</view>
+    <view wx:if="{{carrier}}" class='send-bar-info' >{{carrier.contact_man}}</view>
+    <view wx:else class='send-bar-info'>请选择承运商</view>
+    <image class='send-bar-next' src='../../images/w_next.png'></image>
+  </view>
+
+  <view class='send-bar' bindtap='showTime'>
+    <view class='send-bar-label'>预约提货时间</view>
+    <view class='send-bar-info' >{{sendDate}} {{sendTime}}</view>
+    <image class='send-bar-next' src='../../images/w_next.png'></image>
+  </view>
+</view>
+
+<view class='send-remark'>
+  <view class='send-remark-label'>备注信息</view>
+  <textarea placeholder='例：请开大车提货'  hidden="{{markFcous}}" value="{{remark}}" bindinput='bindInput' data-key="remark" ></textarea>
+</view>
+
+<view class='send-bottom'>
+  <view class='send-bottom-rule'>
+    <image src='{{ruleIcon}}' date-status="{{ruleStatus}}" bindtap='ruleCheck'></image>
+    <view bindtap='showRule' date-status="{{ruleStatus}}">我已查询并同意
+      <text>《发货服务条款》</text>
+    </view>
+  </view>
+  <view class='send-bottom-opt' bindtap='submitOrder'>提交订单</view>
+</view>
+
+
+
+<view class='pop-shadow' bindtap="hide" hidden="{{hideShadow}}"></view>
+<view class='pop-up pop-time' hidden="{{hideTime}}">
+  <view class='pop-head'>
+    <view bindtap="hideTime">关闭</view>
+    <view class='save' bindtap="chooseTime">确认</view>
+  </view>
+
+  <view class='datelist'>
+    <view bindtap="select" wx:for="{{ calendar }}" wx:for-item="item" wx:for-index="index" data-index="{{ index }}" class='listItem {{index==currentIndex? "current":""}}'>
+      <view class='name'>{{ item.week }}</view>
+      <view class='date'>{{ item.date }}</view>
+    </view>
+  </view>
+
+  <view class='timelist'>
+    <view wx:for="{{ timeArr }}" wx:for-item="timeItem" wx:for-index="timeIndex" data-Tindex="{{ timeIndex }}" wx:key="timeEnd" bindtap='selectTime' class='listItem {{ currentTime==timeIndex? "current":"" }} {{ timeItem.overtime? "over":"" }}'>
+      <view>{{ timeItem.timeEnd }}</view>
+    </view>
+  </view>
+
+</view>
+
+<view class='pop-up pop-rule' hidden="{{hideRule}}">
+  <view class='pop-cancel' bindtap='hideRule'>
+    <icon type='clear'></icon>
+  </view>
+  <view class='pop-title'>发货服务条款</view>
+  <scroll-view class='pop-rule-content' scroll-y>
+    <rich-text nodes="{{agreement}}" ></rich-text>
+  </scroll-view>
+  <view class='pop-bottom' bindtap='agreeRule'>同意并不再提醒</view>
+</view>
+
+<view class='pop-up pop-tip' hidden="{{hideTip}}">
+  <view class='pop-head-left'>下单成功提示</view>
+  <view class='pop-tip-content'>此订单号为{{orderId}}，已下单成功，系统正在分配收货员，请耐心等待！</view>
+   <view class='pop-opt-right'>
+      <view bindtap='hideTip'>再下一单</view>
+      <view class='pop-opt-color' bindtap='toOrder' data-status="s1" data-id="{{orderId}}" data-time="{{orderTime}}">查看订单</view>
+   </view>
+</view>

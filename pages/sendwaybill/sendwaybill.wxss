@@ -1,0 +1,269 @@
+/* pages/sendwaybill/sendwaybill.wxss */
+.send-headline {
+  padding: 20rpx;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  background: #fff;
+}
+
+.send-address {
+  margin-top: 20rpx;
+  background: #fff;
+}
+
+.send-address-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e7e7e7;
+  padding: 20rpx;
+}
+
+.send-address-item:last-child {
+  border: none;
+}
+
+.send-address-pic {
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.send-address-next, .send-bar-next {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.send-address-default, .send-address-info {
+  color: #666;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  width: calc(100% - 116rpx);
+  margin: 0 12rpx;
+}
+
+.send-address-info {
+  line-height: 48rpx;
+  padding: 20rpx 0;
+}
+
+.send-address-name {
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 10rpx;
+}
+
+.send-address-name text {
+  margin-right: 20rpx;
+}
+
+.send-block {
+  margin: 20rpx 0;
+  background: #fff;
+  overflow: hidden;
+}
+
+.send-block-item {
+  float: left;
+  width: calc(50% - 40rpx);
+  padding: 30rpx 20rpx;
+  font-size: 30rpx;
+  color: #666;
+  line-height: 48rpx;
+  position: relative;
+}
+
+.send-block-label {
+  color: #000;
+  margin-bottom: 10rpx;
+}
+
+.send-block-next {
+  position: absolute;
+  right: 20rpx;
+  top: 36rpx;
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.send-bar {
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  background: #fff;
+}
+
+.send-bar-info {
+  width: calc(100% - 260rpx);
+  margin: 0 20rpx;
+  color: #666;
+}
+
+.send-bar-forwarder {
+  border-top: 1px solid #e7e7e7;
+}
+
+.send-bar-forwarder .send-bar-info {
+  width: calc(100% - 170rpx);
+}
+
+.send-remark {
+  display: flex;
+  align-items: flex-start;
+  padding: 20rpx;
+  margin-top: 20rpx;
+  background: #fff;
+  font-size: 30rpx;
+  line-height: 48rpx;
+  height: 192rpx;
+}
+
+.send-remark textarea {
+  width: calc(100% - 160rpx);
+  margin: 0 20rpx;
+  color: #666;
+  height: 192rpx;
+}
+
+.send-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 96rpx;
+  line-height: 96rpx;
+  background: #fff;
+  border-top: 1px solid #e7e7e7;
+  display: flex;
+  font-size: 30rpx;
+}
+
+.send-bottom-rule {
+  display: flex;
+  width: calc(100% - 220rpx);
+  align-items: center;
+  padding-left: 20rpx;
+}
+
+.send-bottom-rule image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+
+.send-bottom-rule text {
+  color: #5dbcb4;
+}
+
+.send-bottom-opt {
+  width: 240rpx;
+  text-align: center;
+  font-size: 34rpx;
+  color: #fff;
+  background: #faaf18;
+}
+
+/*配送时间弹窗*/
+
+.pop-time {
+  bottom: 0;
+  width: 100%;
+}
+
+.pop-time .datelist {
+  width: calc(100% - 20rpx);
+  padding: 0 10rpx;
+  display: flex;
+  margin-top: 20rpx;
+}
+
+.pop-time .listItem {
+  text-align: center;
+  width: calc(33.3333% - 20rpx);
+  margin: 15rpx 10rpx;
+  height: 100rpx;
+  padding: 10rpx 0;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  border-radius: 6rpx;
+  border: 1px solid #999;
+  line-height: 40rpx;
+}
+
+.pop-time .listItem .date {
+  font-size: 26rpx;
+}
+
+.pop-time  .datelist .current, .pop-time  .timelist .current {
+  border: 1px solid #faaf18;
+  color: #faaf18;
+}
+
+.pop-time .timelist {
+  width: calc(100% - 20rpx);
+  padding: 0 10rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 20rpx;
+}
+
+.timelist .listItem {
+  padding: 0;
+  line-height: 80rpx;
+  height: 80rpx;
+}
+
+.timelist .over {
+  border: 1px solid #c3c3c3;
+  color: #c3c3c3;
+}
+
+/*服务条款弹窗*/
+
+.pop-rule {
+  top: 7%;
+  left: 7%;
+  width: 86%;
+  height: 86%;
+  border-radius: 10rpx 10rpx;
+  overflow: hidden;
+}
+
+.pop-rule .pop-title {
+  margin-top: 20rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 34rpx;
+  border-bottom: 1px dashed #e7e7e7;
+}
+
+.pop-rule-content {
+  height: calc(100% - 250rpx);
+  width: calc(100% - 40rpx);
+  margin: 20rpx;
+  font-size: 28rpx;
+  line-height: 48rpx;
+}
+
+.textIndent {
+  text-indent: 2em;
+}
+
+.pop-tip {
+  background: #fff;
+  width: 80%;
+  height: 400rpx;
+  left: 10%;
+  top: 50%;
+  margin-top: -200rpx;
+  border-radius: 10rpx;
+}
+
+.pop-tip-content{
+  height: calc(100% - 260rpx);
+  font-size: 30rpx;
+  color: #999;
+  padding: 20rpx 30rpx;
+  line-height: 42rpx;
+}

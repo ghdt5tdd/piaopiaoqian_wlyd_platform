@@ -1,0 +1,28 @@
+<!--pages/trail/trail.wxml-->
+<view class='search'>
+  <image class='search-icon' src='../../images/scan-b.png'></image>
+  <input placeholder='请输入运单号' value="{{shopOrderID}}" bindinput='bindShopOrder'></input>
+  <icon type='search' bindtap='search'></icon>
+</view>
+
+<view class='trail-content'>
+  <view class='trail-head'>物流轨迹</view>
+  <view class='trail-list'>
+    <view wx:for="{{trails}}" wx:key="index" class="trail-item">
+      <view class="trail-item-circle">
+        <view class='iconfont icon-deliver'></view>
+      </view>
+      <view class="trail-item-txt">
+        <view class="trail-item-status">{{item.node_content}}</view>
+        <view class='trail-item-content'>
+          <view class='trail-item-detail'>
+            <view class='trail-item-point'></view>
+            <!-- <view class="trail-item-info">{{item.node_content}}</view> -->
+            <view class="trail-item-time">{{item.create_date}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

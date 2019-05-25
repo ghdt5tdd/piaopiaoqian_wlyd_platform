@@ -1,0 +1,7 @@
+/* pages/point/point.wxss */
+@import '../waybill/waybill.wxss';
+
+page {
+  background: #fff;
+  padding: 20rpx;
+}

@@ -1,0 +1,52 @@
+<!--pages/addCreate/addCreate.wxml-->
+  <view class='form-content'>
+    <view class='section'>
+
+      <view class="section-bar">
+        <view class="section-title">联系人：</view>
+        <view class="section-info">
+          <input name="name" placeholder='请输入联系人姓名' value="{{name}}" bindinput='bindinput' data-key='name'></input>
+        </view>
+      </view>  
+      <view class="section-bar">
+        <view class="section-title">联系方式：</view>
+        <view class="section-info">
+          <input name="tel" type="number" placeholder='请输入联系人手机号' value="{{tel}}" bindinput='bindinput' data-key='tel'></input>
+        </view>
+      </view>          
+      <view class="section-bar">
+        <view class="section-title">所在地区：</view>
+        <view class="section-info">
+          <picker mode="region" data-location="{{location}}" bindchange="changeRegin" value="{{region}}" custom-item="{{customItem}}">
+            <view class="picker">
+              {{region[0]}}，{{region[1]}}，{{region[2]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="section-bar section-multiline">
+        <view class="section-title">详细地址：</view>
+        <view class="section-info">
+          <view class='textvalue'>{{door}}</view>
+          <textarea name="door" placeholder='详细到门牌号' bindinput='bindinput' data-key='door' value='{{door}}'></textarea>
+        </view>
+        <view class='section-location red' data-map="{{door}}" bindtap="location">定位</view>
+      </view>
+
+      <view class="section-bar">
+        <view class="section-title">客户卡号：</view>
+        <view class="section-info">
+          <input name="customCard" placeholder='选填' value="{{company_code}}" bindinput='bindinput' data-key='company_code'></input>
+        </view>
+      </view>  
+
+      <view class="section-bar">
+        <view class="section-title">客户名称：</view>
+        <view class="section-info">
+          <input name="customName" placeholder='选填' value="{{contact_company}}" bindinput='bindinput' data-key='contact_company'></input>
+        </view>
+      </view>  
+
+    </view>
+  </view>
+  <button class='button-bottom' bindtap="formSubmit">保存</button>

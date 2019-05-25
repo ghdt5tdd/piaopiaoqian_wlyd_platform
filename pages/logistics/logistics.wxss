@@ -1,0 +1,9 @@
+/* pages/logistics/logistics.wxss */
+@import '../waybill/waybill.wxss';
+
+.trail {
+  background: #fff;
+  padding:0 20rpx;
+  position: relative;
+  overflow: hidden
+}

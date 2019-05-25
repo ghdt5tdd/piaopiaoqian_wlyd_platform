@@ -1,0 +1,2 @@
+/* pages/addReceive/addReceive.wxss */
+@import '../addSend/addSend.wxss';

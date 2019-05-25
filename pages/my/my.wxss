@@ -1,0 +1,114 @@
+/**index.wxss**/
+
+.my-head {
+  background: #272d4d;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  font-size: 0;
+}
+
+.my-bg {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+}
+
+.userinfo {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  padding: 20rpx;
+  color: #fff;
+}
+
+.userinfo-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  background: #272d4d;
+}
+
+.userinfo-nickname {
+  font-size: 30rpx;
+}
+
+.my-block {
+  margin-top: 20rpx;
+}
+
+.my-bar {
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  background: #fff;
+  justify-content: space-between;
+  margin-bottom: 1px;
+}
+
+.my-bar-icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+
+.my-bar-next {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 20rpx;
+}
+
+.my-bar-name {
+  width: calc(100% - 125rpx);
+}
+
+.my-bar-text {
+  width: 150rpx;
+  text-align: right;
+}
+
+.pop-untying {
+  background: #fff;
+  width: 80%;
+  height: 300rpx;
+  left: 10%;
+  top: 50%;
+  margin-top: -150rpx;
+  border-radius: 10rpx;
+}
+
+.pop-untying-content {
+  height: calc(100% - 260rpx);
+  font-size: 30rpx;
+  color: #999;
+  padding: 20rpx 30rpx;
+  line-height: 42rpx;
+}
+
+.my-content {
+  height: calc(100vh - 350rpx);
+}
+
+.my-support {
+  margin: 30rpx 20rpx;
+  font-size: 0;
+  text-align: center;
+  color: #666;
+}
+
+.my-support-text {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  margin-top: 10rpx;
+}
+
+.my-support image {
+  width: 40rpx;
+  height: 40rpx;
+}

@@ -1,0 +1,29 @@
+<!--pages/logistics/logistics.wxml-->
+<view class='trail'>
+  <view class='waybill-head'>物流轨迹</view>
+  <view class='trail-opt'>
+    <view bindtap='toLoaction'>车辆定位</view>
+    <view bindtap='aspect'>签收图片</view>
+  </view>
+
+  <view class='trail-list'>
+    <view wx:for="{{logistics}}" wx:key="key" class="trail-item">
+      <view class="trail-item-circle">
+        <view class='iconfont {{item.icon}}'></view>
+      </view>
+      <view class="trail-item-txt">
+        <view class="trail-item-status">{{item.status}}</view>
+        <view class='trail-item-content'>
+          <view wx:for="{{item.detail}}" wx:key="key" class='trail-item-detail'>
+            <view class='trail-item-point'></view>
+            <view class="trail-item-info">{{item.info}}</view>
+            <view class="trail-item-time">
+              <view>{{item.date}}</view>
+              <view>{{item.time}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

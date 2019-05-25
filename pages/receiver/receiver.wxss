@@ -1,0 +1,608 @@
+/* pages/receiver/receiver.wxss */
+
+.search-head {
+  background: #fff;
+  padding: 20rpx;
+  align-items: center;
+}
+
+.search-info {
+  width: calc(100% - 40rpx);
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+  background: #f4f4f4;
+}
+
+.search-info  input {
+  font-size: 30rpx;
+  line-height: 80rpx;
+  height: 80rpx;
+}
+
+/**订单状态**/
+
+.order-status {
+  border-bottom: 2rpx solid #e7e7e7;
+  background: #fff;
+  margin-top: 20rpx;
+  height: 84rpx;
+  width: 100%;
+}
+
+.order-status-items {
+  display: inline-block;
+  padding: 0 6rpx;
+  margin: 0 20rpx;
+  line-height: 80rpx;
+  border-bottom: 2px solid transparent;
+  font-size: 30rpx;
+}
+
+.order-status-items.on {
+  border-bottom: 2px solid #faaf18;
+  color: #faaf18;
+}
+
+.ul-5 .order-status-items {
+  width: 20%;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.ul-4 .order-status-items {
+  width: calc(25% - 40rpx);
+  text-align: center;
+  padding: 0;
+}
+
+.ul-3 .order-status-items {
+  width: calc(33.33333% - 40rpx);
+  text-align: center;
+  padding: 0;
+}
+
+.ul-2 .order-status-items {
+  width: calc(50% - 40rpx);
+  text-align: center;
+  padding: 0;
+}
+
+/*运单列表*/
+
+.card-box {
+  overflow: hidden;
+}
+
+.card-box .order-table-items {
+  background: #fff;
+  padding: 0 20rpx;
+  margin: 20rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-shadow: 0rpx -10rpx 10rpx #eee,
+                -10rpx 0rpx 10rpx #eee,
+                10rpx 0rpx 10rpx #eee,
+                0rpx 10rpx 10rpx #eee;
+}
+
+.order-table-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30rpx;
+  line-height: 80rpx;
+}
+
+.order-table-id {
+  width: calc(100% - 226rpx);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.order-table-id text {
+  font-size: 26rpx;
+}
+
+.order-table-time {
+  font-size: 26rpx;
+}
+
+.order-table-content {
+  position: relative;
+}
+
+.order-table-to {
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  right: 0;
+  top: 50%;
+  margin-top: -20rpx;
+}
+
+.order-table-line {
+  border-top: 1px solid #e7e7e7;
+  padding: 30rpx 40rpx 30rpx 0;
+}
+
+.order-line-route {
+  display: flex;
+  font-size: 36rpx;
+  align-items: center;
+  margin-bottom: 20rpx;
+  line-height: 60rpx;
+}
+
+.order-line-route image {
+  width: 100rpx;
+  margin: 0 10rpx;
+}
+
+.order-cargo-info {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.order-cargo-info  view {
+  width: calc(100% - 42rpx);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.order-cargo-info  image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.order-table-opt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #e7e7e7;
+  padding: 20rpx 0;
+  text-align: right;
+  position: relative;
+}
+
+.order-opt-status {
+  font-size: 30rpx;
+  text-align: left;
+  line-height: 40rpx;
+  width: 180rpx;
+}
+
+
+.order-opt-status text {
+  margin-left: 10rpx;
+}
+
+
+.order-opt-right{
+  width: calc(100% - 180rpx);
+  justify-content: flex-end;
+  display: flex;
+}
+
+.order-opt-node {
+  display: inline-block;
+  font-size: 28rpx;
+  border: 2rpx solid #faaf18;
+  color: #faaf18;
+  width: 140rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border-radius: 31rpx;
+}
+
+.order-opt-item {
+  display: inline-block;
+  line-height: 60rpx;
+  width: 140rpx;
+  font-size: 28rpx;
+  text-align: center;
+  border: 2rpx solid #faaf18;
+  background: #faaf18;
+  color: #fff;
+  border-radius: 31rpx;
+  margin-left: 20rpx;
+}
+
+.order-opt-item.gray {
+  border: 2rpx solid #cfcfcf;
+  background: #cfcfcf;
+  color: #fff;
+}
+
+.order-opt-item.line {
+  background: #fff;
+  color: #faaf18;
+}
+
+/*在线支付*/
+
+.pop-pay, .pop-sign, .pop-comment, .pop-pack {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 999;
+  background: #fff;
+}
+
+.pop-pay .pay-head {
+  font-size: 38rpx;
+  text-align: center;
+  margin: 0 20rpx;
+  border-bottom: 1px solid #e7e7e7;
+  padding: 30rpx 0;
+}
+
+.pop-pay .pay-head text {
+  font-size: 56rpx;
+}
+
+.pop-pay .pay-list {
+  padding: 30rpx 20rpx;
+}
+
+.pay-item {
+  display: flex;
+  background: #fff;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10rpx 0;
+}
+
+.pay-item:last-child {
+  border: none;
+}
+
+.pay-icon {
+  display: block;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.pay-image {
+  width: 200rpx;
+  height: 100rpx;
+}
+
+.pop-bottom {
+  line-height: 80rpx;
+  height: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+  background: #bbb;
+  color: #fff;
+}
+
+.pop-bottom-opt {
+  float: left;
+  width: 50%;
+}
+
+/* 签收*/
+
+.order-table-items {
+  background: #fff;
+  padding: 0 20rpx;
+}
+
+.order-table-bar {
+  border-top: 1px solid #e7e7e7;
+  padding: 30rpx 0 10rpx;
+}
+
+.order-bar-route {
+  display: flex;
+  font-size: 34rpx;
+  align-items: center;
+  margin-bottom: 10rpx;
+  line-height: 40rpx;
+}
+
+.order-bar-route image {
+  width: 100rpx;
+  margin: 0 10rpx;
+}
+
+.order-bar-cargo .order-bar-dispatch, .order-bar-cargo .order-bar-receive,
+.order-bar-cargo .order-bar-num {
+  padding: 10rpx 0 10rpx 70rpx;
+  font-size: 30rpx;
+  position: relative;
+  line-height: 40rpx;
+}
+
+.order-bar-cargo .order-bar-dispatch view,
+.order-bar-cargo .order-bar-receive view {
+  margin: 6rpx 0;
+}
+
+.order-bar-cargo image {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -30rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.order-bar-cargo .order-bar-num image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: -20rpx;
+  left: 10rpx;
+}
+
+.order-other {
+  background: #fff;
+  padding: 20rpx;
+  border-top: 1px solid #e7e7e7;
+}
+
+.order-other-bar {
+  display: flex;
+  font-size: 30rpx;
+  line-height: 46rpx;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.order-other-bar input {
+  height: 40rpx;
+}
+
+.order-other-bar image {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 10rpx;
+}
+
+.order-other-bar view {
+  display: flex;
+  align-items: center;
+}
+
+/*提示弹窗*/
+
+.pop-tip {
+  background: #fff;
+  width: 80%;
+  height: 400rpx;
+  left: 10%;
+  top: 50%;
+  margin-top: -200rpx;
+  border-radius: 10rpx;
+}
+
+.pop-tip-content {
+  height: calc(100% - 260rpx);
+  font-size: 30rpx;
+  color: #999;
+  padding: 20rpx 30rpx;
+  line-height: 42rpx;
+}
+
+.pop-head-left {
+  font-size: 34rpx;
+  padding: 30rpx;
+  line-height: 60rpx;
+}
+
+.pop-opt-right {
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 30rpx;
+  line-height: 40rpx;
+}
+
+.pop-opt-right view {
+  margin-left: 20rpx;
+}
+
+/*上传回单*/
+
+.pop-receipt {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 999;
+  background: #fff;
+}
+
+.card-head {
+  line-height: 40rpx;
+  padding: 20rpx 20rpx;
+  font-size: 34rpx;
+}
+
+.order-bar {
+  line-height: 40rpx;
+  border-bottom: 1px solid #e7e7e7;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+}
+
+.receipt-gallery {
+  padding: 20rpx;
+  background: #fff;
+  overflow: hidden;
+}
+
+.receipt-gallery image {
+  width: 140rpx;
+  height: 140rpx;
+  border: 1px solid #e7e7e7;
+}
+
+/*评价星级*/
+
+.comment-info {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  border-top: 1px solid #e7e7e7;
+  padding: 20rpx;
+  background: #fff;
+  line-height: 40rpx;
+  position: relative;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.comment-rank {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+}
+
+.comment-star {
+  display: flex;
+  margin-left: 20rpx;
+  align-items: center;
+}
+
+.comment-star-pic image {
+  width: 40rpx;
+  height: 40rpx;
+  padding-right: 10rpx;
+}
+
+.comment-impress {
+  padding: 20rpx;
+  background: #fff;
+}
+
+.comment-impress label {
+  display: inline-block;
+  width: 50%;
+  font-size: 30rpx;
+  line-height: 60rpx;
+}
+
+.comment-impress checkbox {
+  transform: scale(0.8);
+}
+
+.comment-mark {
+  background-color: #fff;
+  padding: 15rpx 20rpx 30rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+}
+
+.comment-mark textarea {
+  border: 2rpx solid #e0e0e0;
+  border-radius: 5rpx;
+  padding: 10rpx 20rpx;
+  height: 200rpx;
+  width: calc(100% - 60rpx);
+  position: static;
+}
+
+.comment-gallery {
+  overflow: hidden;
+  padding-bottom: 40rpx;
+  background: #fff;
+}
+
+.comment-gallery-info {
+  float: left;
+}
+
+.comment-gallery-info .img, .comment-gallery-upload {
+  float: left;
+  position: relative;
+  border: 1px dashed #e7e7e7;
+  width: 140rpx;
+  height: 140rpx;
+  margin-left: 20rpx;
+}
+
+.comment-gallery-info image {
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.comment-gallery-info .delete-btn {
+  position: absolute;
+  right: 6rpx;
+  top: 6rpx;
+  font-size: 30rpx;
+}
+
+.comment-gallery-upload {
+  font-size: 30rpx;
+  color: #999;
+  text-align: center;
+}
+
+.comment-gallery-upload image {
+  width: 140rpx;
+  height: 140rpx;
+}
+
+/**日历插件**/
+
+.canlendarBgView {
+  background: #fff;
+  position: fixed;
+  width: 80%;
+  top: 50%;
+  left: 10%;
+  margin-top: -308rpx;
+  z-index: 1001;
+}
+
+.canlendarTopView {
+  display: flex;
+  justify-content: center;
+  padding: 20rpx;
+  font-size: 28rpx;
+}
+
+.centerView {
+  padding: 0 80rpx;
+}
+
+.weekBgView, .dateBgView {
+  overflow: hidden;
+  font-size: 28rpx;
+}
+
+.weekView {
+  float: left;
+  width: 14.2857%;
+  text-align: center;
+}
+
+.dateEmptyView, .dateView {
+  float: left;
+  width: 14.2857%;
+  text-align: center;
+  height: 60rpx;
+  padding: 20rpx 0;
+}
+
+.datesView {
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.dateSelectView {
+  background: #e52019;
+  color: #fff;
+}

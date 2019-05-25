@@ -1,0 +1,20 @@
+{
+  "extEnable": true,
+  "extAppid": "wx007df2ff146930b4",
+  "directCommit": false,
+  "ext": {
+    "APP_ID": "wx007df2ff146930b4",
+    "PLATFORM_APP_AREA": "a736160b9b8949f99ed28dcf246f0f66",
+    "QQ_Map_KEY": "VP4BZ-7CZCR-RDHWL-WUKKF-Q5GN2-5VFOE",
+    "APP_NAME": "物流红娘",
+    "APP_MODULES": {
+        "ORDER_IS_NEED_CARRIER": true,
+        "ORDER_IS_NEED_RECEIVER": true
+    }
+  },
+  "extPages": {
+    "pages/index/index": {
+      "navigationBarTitleText": "物流云店模板"
+    }
+  }
+}

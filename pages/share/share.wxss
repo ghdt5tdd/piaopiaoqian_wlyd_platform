@@ -1,0 +1,131 @@
+/* pages/share/share.wxss */
+
+.friend-list {
+  border-radius: 10rpx;
+  height: calc(100vh - 420rpx);
+}
+
+.friend-block {
+  background: #fff;
+  border-bottom: 1px solid #e7e7e7;
+  padding: 20rpx;
+  margin: 0 20rpx;
+  height: 140rpx;
+  display: flex;
+  align-items: center;
+}
+
+.friend-block:last-child {
+  border: none;
+}
+
+.friend-rank {
+  width: 60rpx;
+  color: #333;
+  font-size: 30rpx;
+}
+
+.friend-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border: 2px solid #faaf18;
+  border-radius: 50%;
+}
+
+.friend-info {
+  margin-left: 20rpx;
+}
+
+.friend-name {
+  font-size: 32rpx;
+  line-height: 50rpx;
+}
+
+.friend-time {
+  color: #999;
+  font-size: 24rpx;
+  line-height: 40rpx;
+}
+
+.friend-banner {
+  height: 210rpx;
+  overflow: hidden;
+}
+
+.friend-banner  image {
+  width: 100%;
+}
+
+.friend-count {
+  display: flex;
+}
+
+.friend-count-num, .friend-count-bonus {
+  width: 30%;
+  padding: 30rpx 20rpx;
+  line-height: 40rpx;
+  font-size: 32rpx;
+  display: flex;
+}
+
+.friend-count-bonus {
+  width: 70%;
+}
+
+.friend-count-num text, .friend-count-bonus text {
+  color: #e52019;
+}
+
+.friend-count-to {
+  margin-left: 20rpx;
+  color: #faaf18;
+}
+
+.pop-share {
+  left: 7%;
+  width: 86%;
+  top: 50%;
+  height: 780rpx;
+  margin-top: -360rpx;
+  border-radius: 10rpx 10rpx;
+  overflow: hidden;
+}
+
+.pop-share-head {
+  position: relative;
+  padding: 30rpx 20rpx 30rpx 100rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+
+.pop-share-head .userinfo-avatar {
+  position: absolute;
+  width: 66rpx;
+  height: 66rpx;
+  border-radius: 50%;
+  top: 25rpx;
+  left: 20rpx;
+}
+
+.userinfo-tip {
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  color: #999;
+}
+
+.pop-share-content {
+  padding: 0 20rpx;
+  height: calc(100% - 300rpx);
+  width: calc(100% - 40rpx);
+}
+
+.pop-share-content image {
+  width: 100%;
+}
+
+.pop-share-info {
+  padding: 20rpx 10rpx 0;
+  line-height: 40rpx;
+  font-size: 32rpx;
+}
+

@@ -1,0 +1,41 @@
+<!--pages/addEdit/addEdit.wxml-->
+<form bindsubmit="formSubmit" report-submit="true">
+  <view class='form-content'>
+    <view class='section'>
+
+      <view class="section-bar">
+        <view class="section-title">联系人：</view>
+        <view class="section-info">
+          <input name="name" placeholder='请输入联系人姓名' value="{{name}}"></input>
+        </view>
+      </view>  
+      <view class="section-bar">
+        <view class="section-title">联系方式：</view>
+        <view class="section-info">
+          <input name="tel" placeholder='请输入联系人手机号' value="{{tel}}"></input>
+        </view>
+      </view>          
+      <view class="section-bar">
+        <view class="section-title">所在地区：</view>
+        <view class="section-info">
+          <picker mode="region" data-location="{{location}}" bindchange="changeRegin" value="{{region}}" custom-item="{{customItem}}">
+            <view class="picker">
+              {{region[0]}}，{{region[1]}}，{{region[2]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="section-bar section-multiline">
+        <view class="section-title">详细地址：</view>
+        <view class="section-info">
+          <view class='textvalue'>{{door}}</view>
+          <textarea name="door" placeholder='详细到门牌号' bindinput="getInput" value='{{door}}'></textarea>
+        </view>
+        <view class='section-location red' data-map="{{door}}" bindtap="location">定位</view>        
+      </view>
+
+    </view>
+  </view>
+  <button class='button-bottom' formType="submit" data-index="{{index}}">保存</button>
+
+</form>

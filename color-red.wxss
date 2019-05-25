@@ -1,0 +1,53 @@
+/**页面模块背景**/
+
+.search-scan, .topage, .order-status, .my-head, .userinfo-avatar {
+  background: #e51c24 !important;
+}
+
+/**货物类型标题**/
+
+.cargo-title {
+  border-color: #e51c24 !important;
+}
+
+/**选中的货物类型**/
+
+.cargo-item.selected .cargo-item-name {
+  border-color: #e52019 !important;
+  color: #e52019 !important;
+  background: #f7e0e0 !important;
+}
+
+/**时间选择弹窗**/
+
+.pop-head .save {
+  color: #e51c24 !important;
+}
+
+.pop-time  .datelist .current, .pop-time  .timelist .current {
+  border-color: #e51c24 !important;
+  color: #e51c24 !important;
+}
+
+/**订单状态**/
+
+.order-status-item.selected {
+  color: #f7e0e0 !important;
+  border-color: #f7e0e0 !important;
+}
+
+/**订单操作按钮**/
+
+.order-opt view {
+  background: #e51c24 !important;
+}
+
+.order-opt .cancel {
+  background: #ccc !important;
+}
+
+/**表单确认按钮、提交订单按钮**/
+
+.button-bottom, .pop-bottom, .send-bottom-opt {
+  background: #e51c24 !important;
+}

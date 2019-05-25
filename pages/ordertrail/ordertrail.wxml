@@ -1,0 +1,26 @@
+<!--pages/point/point.wxml-->
+<view class='trail-list'>
+  <view wx:for="{{truckTrail}}" class="trail-item">
+    <view class="trail-item-circle">
+      <view class='iconfont {{item.icon}}'></view>
+    </view>
+    
+    <view class="trail-item-txt">
+      <view class="trail-item-status">{{item.status}}</view>
+      <view class='trail-item-content'>
+        <view wx:for="{{item.detail}}" class='trail-item-detail'>
+          <view class='trail-item-point'></view>
+          <view class="trail-item-info">
+            <view>{{item.location}}</view>
+            <view>经度：{{item.longitude}} 维度：{{item.latitude}}</view>
+            <view>行驶方向：{{item.direction}} 当前车速：{{item.speed}}</view>
+          </view>
+          <view class="trail-item-time">
+            <view>{{item.date}}</view>
+            <view>{{item.time}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

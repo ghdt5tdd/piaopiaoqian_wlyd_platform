@@ -1,0 +1,94 @@
+/* pages/wallet/wallet.wxss */
+
+.wallet-head {
+  background: #272d4d;
+  padding: 30rpx 20rpx;
+  font-size: 32rpx;
+  position: relative;
+  color: #fff;
+  height: 140rpx
+}
+
+.wallet-head-info {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+}
+
+.wallet-head-account text {
+  font-size: 60rpx;
+  margin-left: 10rpx;
+}
+
+.wallet-head-opt {
+  margin-left: 20rpx;
+  background: #faaf18;
+  padding: 10rpx 40rpx;
+  line-height: 40rpx;
+  border-radius: 30rpx;
+}
+
+.wallet-head-icon {
+  position: absolute;
+  right: 20rpx;
+  top: 40rpx;
+  font-size: 120rpx;
+}
+
+.order-status {
+  font-size: 30rpx;
+  align-items: center;
+  line-height: 80rpx;
+  background: #fff;
+}
+
+.order-status-items {
+  display: inline-block;
+  padding: 0 6rpx;
+  margin: 0 20rpx;
+  line-height: 80rpx;
+  border-bottom: 2px solid transparent;
+  font-size: 30rpx;
+}
+
+.order-status-items.on {
+  border-bottom: 2px solid #faaf18;
+  color: #faaf18;
+}
+
+.wallet-record{
+  margin-top: 20rpx;
+  padding: 0 20rpx;
+  background: #fff;
+  height: calc(100% - 320rpx);
+  width: calc(100% - 40rpx)
+}
+
+.wallet-record-item{
+  background: #fff;
+  border-bottom: 1px solid #e7e7e7;
+  padding: 20rpx 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 32rpx;
+}
+
+.wallet-record-item:last-child{
+  border:none
+}
+
+.wallet-record-account{
+  font-size: 26rpx;
+  margin-top: 10rpx;
+}
+
+.wallet-record-time{
+  font-size: 26rpx;
+  color: #999;
+  margin: 5rpx 0
+}
+
+.wallet-record-right{
+  text-align: right
+}

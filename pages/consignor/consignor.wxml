@@ -1,0 +1,157 @@
+<!--pages/consignor/consignor.wxml-->
+<view class='search-head'>
+  <view class='search-info'>
+    <input placeholder='输入货运单号查询' bindconfirm="confirmInput"></input>
+  </view>
+</view>
+
+
+
+<view class='order-status ul-3'>
+  <block wx:for="{{orderStatus}}" wx:key="key">
+    <view class="order-status-items  {{selectStatus == index?'on':''}}" bindtap='selectStatus' data-index="{{index}}">
+      {{item.name}} {{item.num}}
+    </view>
+  </block>
+</view>
+
+<scroll-view scroll-y="true" style="height:calc(100vh - 226rpx);">
+  <view class='card-box'>
+    <view class='order-table'>
+      <block wx:for="{{orderTable}}" wx:key="key">
+        <view class="order-table-items">
+          <view class='order-table-head'>
+            <view class='order-table-id'>运单号：
+              <text>{{item.id}}</text>
+            </view>
+            <view class='order-table-time'>{{item.time}}</view>
+          </view>
+          <view class='order-table-content'>
+            <navigator url="../waybill/waybill" hover-class='none'>
+              <view class='order-table-line'>
+                <view class='order-line-route'>
+                  <view class='order-route-point'>{{item.start}}</view>
+                  <image mode="widthFix" src="../../images/arrow.png"></image>
+                  <view class='order-route-point'>{{item.end}}</view>
+                </view>
+                <view class='order-cargo-info'>
+                  <image src="../../images/person.png"></image>
+                  <view>{{item.receive}}收</view>
+                </view>
+                <view class='order-cargo-info'>
+                  <image src="../../images/cargo.png"></image>
+                  <view>{{item.cargoName}} {{item.cargoNum}}件  {{item.cargoPack}} {{item.cargoWeight}}kg {{item.cargoCubage}}m³</view>
+                </view>
+              </view>
+              <image class='order-table-to' src='../../images/w_next.png'></image>
+            </navigator>
+          </view>
+
+          <view class='order-table-opt'>
+            <view class='order-opt-status' wx:if="{{item.payStyle == '现付'}}">{{item.payStyle}}
+              <text class='red'>¥{{item.payAmount}}</text>
+            </view>
+            <view class='order-opt-status' wx:else>{{item.status}}</view>
+            <view class='order-opt-right'>
+              <view class='order-opt-node'>
+                <navigator url="../logistics/logistics" hover-class='none'>物流跟踪</navigator>
+              </view>
+              <view class='order-opt-bar'  wx:for="{{item.btn}}" wx:key="key">
+                <view class='order-opt-item' bindtap='{{item.open}}'>{{item.info}}
+                </view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</scroll-view>
+
+
+
+
+<view class='pop-shadow' hidden="{{hide}}" bindtap='hide'></view>
+
+<!--现付运单在线支付-->
+<view class='pop-up pop-pay' hidden="{{hidePay}}">
+  <view class='pop-content'>
+    <view class='pay-head'>¥
+      <text>{{payAmount}}</text>
+    </view>
+    <view class="pay-list">
+      <view wx:for="{{pays}}" wx:key="key" data-select="{{item.select}}" class="pay-item {{item.select == paySelect ? 'active':''}}" bindtap="choosePay" data-name="{{item.payName}}">
+        <view class='pay-name' hidden>
+          {{item.payName}}
+        </view>
+        <image class='pay-image' src="{{item.image}}" />
+        <image class='pay-icon' src="{{item.icon}}" />
+      </view>
+    </view>
+  </view>
+  <view class='pop-bottom'>
+    <view class='pop-bottom-opt' bindtap='hide'>取消</view>
+    <view class='pop-bottom-opt bg-orange'>立即付款</view>
+  </view>
+
+</view>
+
+<!--上门揽件-->
+<view class='pop-up pop-pack' hidden="{{hidePack}}">
+  <view class='pop-content'>
+    <view class='order-table'>
+      <view class="order-table-items">
+        <view class='order-table-head'>
+          <view class='order-table-id'>货运单号：{{id}}</view>
+          <view class='order-table-time'>{{time}}</view>
+        </view>
+
+        <view class='order-table-bar'>
+          <view class='order-bar-route'>
+            <view class='order-route-point'>{{start}}</view>
+            <image mode="widthFix" src="../../images/arrow.png"></image>
+            <view class='order-route-point'>{{end}}</view>
+          </view>
+          <view class='order-bar-cargo'>
+            <view class='order-bar-dispatch'>
+              <image src="../../images/w_send.png"></image>
+              <view>{{dispatch}}寄</view>
+              <view>{{dispatchTel}}</view>
+            </view>
+            <view class='order-bar-receive'>
+              <image src="../../images/w_receive.png"></image>
+              <view>{{receive}}收</view>
+              <view>{{receiveTel}}</view>
+            </view>
+            <view class='order-bar-num'>
+              <image src="../../images/cargo.png"></image>
+              <view>{{cargoName}} {{cargoNum}}件  {{cargoPack}} {{cargoWeight}}kg {{cargoCubage}}m³</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class='order-other'>
+      <view class='order-other-bar'>
+        <text>实收件数：</text>
+        <input placeholder='{{actualNum}}' style='width:120rpx'></input>件
+      </view>
+      <view class='order-other-bar'>
+        <text>操作人：</text>
+        <input placeholder='可不填'></input>
+      </view>
+      <view class='order-other-bar'>
+        <text>操作时间：</text>
+        <view>{{operatingTime}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='pop-bottom'>
+    <view class='pop-bottom-opt' bindtap='hide'>取消</view>
+    <view class='pop-bottom-opt bg-orange'>确认</view>
+  </view>
+</view>

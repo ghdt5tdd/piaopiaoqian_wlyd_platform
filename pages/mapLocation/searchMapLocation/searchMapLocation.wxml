@@ -1,0 +1,25 @@
+<!--searchMapLocation.wxml-->
+<view class="searchTable">
+
+  <view class="search">
+    <input bindinput="bindKeyInput" placeholder="街道/大厦/小区" confirm-type="search" maxlength="100" bindconfirm="clickSearch" bindfocus="clickSearchView" bindblur="loseInputBlur" focus="true" />
+    <icon type='search' bindtap="clickSearch"></icon>
+  </view>
+
+  <!-- 列表 -->
+  <scroll-view  scroll-y="true" style="height:calc(100% - 120rpx);position:fixed;top:120rpx;bottom:0"  class="addressListView">
+    <block wx:for="{{tips}}">
+      <view class="addressCell" bindtap="didSelectCell" data-index="{{index}}">
+
+        <view class="address">
+          <text>{{item.city + (item.district == undefined?'':item.district)}}</text>
+        </view>
+
+        <view class="detail">
+          <text>{{item.title}}</text>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+
+</view>
