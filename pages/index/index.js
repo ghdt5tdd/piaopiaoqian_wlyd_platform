@@ -17,8 +17,8 @@ Page({
     bookingOrders: [],
     hideShadow: true,
     hideOrdering: true,
-    hide: true,
-
+    hide: true, 
+    
   },
 
   scanShopOrder() {

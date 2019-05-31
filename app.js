@@ -166,7 +166,6 @@ App({
     appId: '',
     appName: '',
     appModules: {},
-
     isBindPhone: false,
     openId: '',
     sessionKey: '',
