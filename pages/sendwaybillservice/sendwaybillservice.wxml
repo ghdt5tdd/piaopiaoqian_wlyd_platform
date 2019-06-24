@@ -1,0 +1,50 @@
+<!--pages/service/service.wxml-->
+  <view class='section'>
+    <view class="section-bar">
+      <view class="section-title">是否短信通知</view>
+      <view class="section-info">
+        <picker bindchange="selectRadio" data-key="is_sms" range-key="{{'text'}}" range="{{whether}}" value="{{tServices.is_sms.value}}">
+        <view class="picker">
+          {{whether[tServices.is_sms.value].text}}
+        </view>
+        </picker>
+      </view>
+    </view> 
+
+    <view class="section-bar">
+      <view class="section-title">是否控货</view>
+      <view class="section-info">
+        <picker bindchange="selectRadio" data-key="is_konghuo" range-key="{{'text'}}" range="{{whether}}" value="{{tServices.is_konghuo.value}}">
+        <view class="picker">
+          {{whether[tServices.is_konghuo.value].text}}
+        </view>
+        </picker>
+      </view>
+    </view> 
+
+    <view class="section-bar">
+      <view class="section-title">回单要求</view>
+      <view class="section-info">
+        <picker bindchange="selectRadioItem" data-key="is_signorder" data-array="signorders" range-key="{{'itemText'}}" range="{{signorders}}" value="{{tServices.is_signorder.value}}">
+        <view class="picker">
+          {{signorders[tServices.is_signorder.value].itemText}}
+        </view>
+        </picker>
+      </view>
+    </view> 
+
+    <view class="section-bar">
+      <view class="section-title">代收货款</view>
+      <view class="section-info">
+         <input name="support" type='digit' bindinput='bindInput' value="{{tServices.collect_amount.value}}" data-key="collect_amount"></input>
+      </view>
+    </view> 
+
+    <view class="section-bar">
+      <view class="section-title">保价金额</view>
+      <view class="section-info">
+      <input name="support" type='digit' bindinput='bindInput' value="{{tServices.insured_amount.value}}" data-key="insured_amount"></input>
+      </view>
+    </view> 
+  </view>
+  <button class='button-bottom' bindtap='formSubmit'>确认</button>

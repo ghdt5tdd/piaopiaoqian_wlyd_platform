@@ -318,7 +318,7 @@ Page({
 
   commitComment: function () {
     const id = this.data.selectOrder.id
-    const comment_star = this.data.starSelect
+    const comment_star = this.data.starSelect || 5
     const comment = this.data.comment
     const imgs = JSON.stringify(this.data.imgs)
 
@@ -331,7 +331,7 @@ Page({
       title: '评价提交中...',
       mask: true
     })
-    ajax.postApi('app/order/evaluateShopOrder', {
+    ajax.postApi('mini/program/order/evaluateShopOrder', {
       id,
       comment_content: comment,
       comment_star,
@@ -558,14 +558,36 @@ Page({
       })
     }
   },
+
+  setTitle(type) {
+    console.log(type)
+    switch(type) {
+      case '0':
+        wx.setNavigationBarTitle({
+          title: '我是收货人'
+        })
+        break;
+      case '1':
+        wx.setNavigationBarTitle({
+          title: '我是发货人'
+        })
+        break;
+      default:
+        wx.showToast({
+          title: '页面参数错误',
+        })
+        break
+    }
+  },
   
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setNowDate()
     const type = options.type 
+    this.setNowDate()
+    this.setTitle(type)
     this.setData({
       type
     }, () => {

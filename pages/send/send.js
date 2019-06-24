@@ -16,6 +16,8 @@ Page({
     order_is_need_carrier: app.globalData.appModules.ORDER_IS_NEED_CARRIER,
     order_is_need_receiver: app.globalData.appModules.ORDER_IS_NEED_RECEIVER,
 
+    bookOrderId: undefined,  //修改订单ID
+
     sendAddr: undefined,  //寄件地址
     receiveAddr: undefined, //收件地址
     carrier: undefined, //承运商信息
@@ -429,7 +431,15 @@ Page({
         params.carrierId = carrier.id
       }
 
-      ajax.postApi('mini/program/order/createBookingOrder', params, (err, res) => {
+      const id = this.data.bookOrderId
+      let postApi = 'mini/program/order/createBookingOrder'
+      if (id) {
+        postApi = 'mini/program/order/bookingOrderCommand'
+        params.id = id
+        params.command = 'update'
+      }
+
+      ajax.postApi(postApi, params, (err, res) => {
         wx.hideLoading()
         if (res && res.success) {
           wx.showToast({
@@ -552,12 +562,95 @@ Page({
     })
   },
 
+  loadBookOrder(id) {
+    wx.showLoading({
+      title: '订单加载中...',
+    })
+
+    ajax.getApi('mini/program/order/getBookingOrderById', {
+      id
+    }, (err, res) => {
+      wx.hideLoading()
+      if (res && res.success) {
+        console.log(res.data)
+        const data = res.data
+        this.setData({
+          bookOrderId: id,
+          receiveAddr: {
+            receiveName: data.consignee_man,
+            receiveTel: data.consignee_phone,
+            receiveProvince: data.consignee_province_id,
+            receiveCity: data.consignee_city_id,
+            receiveDistrict: data.consignee_district_id,
+            receiveAddress: data.consignee_address,
+            receiveLocation: data.consignee_province_name + data.consignee_city_name + data.consignee_district_name + data.consignee_address
+          },
+          sendAddr: {
+            sendName: data.consigner_man,
+            sendTel: data.consigner_phone,
+            sendProvince: data.consigner_province_id,
+            sendCity: data.consigner_city_id,
+            sendDistrict: data.consigner_district_id,
+            sendAddress: data.consigner_address,
+            sendLocation: data.consigner_province_name + data.consigner_city_name + data.consigner_district_name + data.consigner_address
+          },
+          WReceive: false,
+          WSend: false,
+          WCargo: false,
+          carrier: {
+            contact_man: data.carrier_name,
+            id: data.carrier_id
+          },
+          cargo: {
+            cargoType: {
+              id: data.goods_class_id,
+              name: data.goods_class_name,
+            },
+            cargoNum: data.total_packing_quantity,
+            cargoPack: data.pack,
+            cargoVolumn: data.total_volume,
+            cargoWeight: data.total_weight,
+            cargoSelectMode: {
+              itemKey: data.settlement_mode
+            }
+          },
+          remark: data.remark,
+          sendDate: data.booking_date,
+          sendTime: data.booking_time2,
+        })
+
+        if (data.add_services) {
+          const tServices = JSON.parse(data.add_services)
+          this.setData({
+            WService: false,
+            tServices
+          })
+        }
+      } else {
+        if (res.text) {
+          wx.showToast({
+            title: res.text,
+            duration: 1000
+          })
+        }
+      }
+    })
+    
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const bookOrderId = options.bookOrderId
+    if(bookOrderId) {
+      //加载要修改的订单信息
+      this.loadBookOrder(bookOrderId)
+    } else {
+      //加载默认地址
+      this.getDefaultPubAddress()
+    }
     this.getOrderAgreement()
-    this.getDefaultPubAddress()
   },
 
   /**

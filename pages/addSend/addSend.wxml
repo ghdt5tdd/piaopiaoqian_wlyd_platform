@@ -39,4 +39,4 @@
   <view>暂无地址数据</view>
 </view>
 
-<view class='button-bottom ' bindtap='toCreate'>新增寄件地址</view>
+<view class='button-bottom ' bindtap='toCreate'>{{select === '1'? '新增寄件地址' : '新增收件地址'}}</view>

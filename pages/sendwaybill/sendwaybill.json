@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "运单登记"
+  "navigationBarTitleText": "运单登记",
+  "usingComponents": {
+    "datetime-picker": "../../components/datetimePicker/datetimePicker"
+  }
 }

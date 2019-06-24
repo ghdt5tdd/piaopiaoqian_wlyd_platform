@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    appName: app.globalData.appName,
     WSend: true, //这里表示有设为默认的寄件地址
     WReceive: true,
     WCargo: true,
@@ -68,7 +69,17 @@ Page({
     hideTip: true, //下单成功提示
     orderId: '',
     agreement: '',
-
+    whether: [{
+      text: '否',
+      value: 0
+    }, {
+      text: '是',
+      value: 1
+    }],
+    is_send_cargo: 0, //送货上门
+    sendcargoTime: '', //送货上门时间
+    is_get_cargo: 0,  //上门取货 
+    getcargoTime: '', //上门取货时间
   },
 
   bindInput(e) {
@@ -76,6 +87,67 @@ Page({
     this.setData({
       [key]: e.detail.value
     })
+  },
+
+  //单选框
+  selectRadio: function (e) {
+    const value = e.detail.value
+    const key = e.currentTarget.dataset.key
+    const val = e.currentTarget.dataset.val
+    this.setData({
+      [key]:value
+    })
+    //如果选否，则重置时间为空
+    if (value == 0) {
+      this.setData({
+        [val]: ''
+      })
+    }
+  },
+
+  //送货上门时间
+  changeSendTime(e) {
+    this.setData({
+      sendcargoTime: e.detail.dateTime
+    })
+  },
+
+  //送货上门时间
+  changeGetTime(e) {
+    this.setData({
+      getcargoTime: e.detail.dateTime
+    })
+  },
+
+  //调用日期选择器
+  showPick(e) {
+    const key = e.currentTarget.dataset.key
+    this.setData({
+      hideShadow: false,
+      hideTime: false,
+      markFcous: true,
+    }, () => {
+      this.selectComponent("#" + key).showPicker();
+    })
+
+    if (!this.data[key]) {
+      const date = new Date()
+      let month = date.getMonth() + 1
+      if(month < 10) {
+        month = '0' + month
+      }
+      let day = date.getDate()
+      if (day < 10) {
+        day = '0' + day
+      }
+      let hour = date.getHours()
+      if (hour < 10) {
+        hour = '0' + hour
+      }
+      this.setData({
+        [key]: date.getFullYear() + '-' + month + '-' + day + ' ' + hour + ':'  + '00'
+      })
+    }
   },
 
 
@@ -115,11 +187,11 @@ Page({
     const tServices = this.data.tServices
     if (tServices) {
       wx.navigateTo({
-        url: '../service/service?tServices=' + JSON.stringify(tServices)
+        url: '../sendwaybillservice/sendwaybillservice?tServices=' + JSON.stringify(tServices)
       })
     } else {
       wx.navigateTo({
-        url: '../service/service'
+        url: '../sendwaybillservice/sendwaybillservice'
       })
     }
 
@@ -277,6 +349,9 @@ Page({
       hideShadow: true,
       hideTime: true,
       markFcous: false,
+    }, () => {
+      this.selectComponent("#sendcargoTime").closePicker();
+      this.selectComponent("#getcargoTime").closePicker();
     })
   },
 
@@ -379,12 +454,16 @@ Page({
       const receiveAddr = this.data.receiveAddr || {}
       const carrier = this.data.carrier
       const remark = this.data.remark
+      const shopOrderNo = this.data.shopOrderNo
+      const sendcargoTime = this.data.sendcargoTime
+      const getcargoTime = this.data.getcargoTime
 
       const params = {
-        goods_class_id: cargo.cargoType.id,
+        bill_no: shopOrderNo,
+        goods_name: cargo.cargoType.name,
 
         consigner_man: sendAddr.sendName,
-        consigner_way: sendAddr.sendTel,
+        consigner_tel: sendAddr.sendTel,
         consigner_province: sendAddr.sendProvince,
         consigner_city: sendAddr.sendCity,
         consigner_district: sendAddr.sendDistrict,
@@ -393,7 +472,7 @@ Page({
         consigner_name: sendAddr.sendCompany,
 
         consignee_man: receiveAddr.receiveName,
-        consignee_way: receiveAddr.receiveTel,
+        consignee_tel: receiveAddr.receiveTel,
         consignee_province: receiveAddr.receiveProvince,
         consignee_city: receiveAddr.receiveCity,
         consignee_district: receiveAddr.receiveDistrict,
@@ -401,17 +480,25 @@ Page({
         consignee_client_account: receiveAddr.receiveCode,
         consignee_name: receiveAddr.receiveCompany,
 
-        volume: cargo.cargoVolumn,
-        weight: cargo.cargoWeight,
-        goods_pack: cargo.cargoPack,
-        packing_amount: cargo.cargoNum,
+        booking_time: getcargoTime,
+        request_delivery_time: sendcargoTime,
+        slip_type: tServices.is_signorder.value,
+        sms_flag: tServices.is_sms.value,
+        cargo_notify: tServices.is_konghuo.value,
+        collection_on_delivery: tServices.collect_amount.value,
+        insured_amount: tServices.insured_amount.value,
+
+        total_volume: cargo.cargoVolumn,
+        total_weight: cargo.cargoWeight,
+        pack: cargo.cargoPack,
+        total_packing_quantity: cargo.cargoNum,
         settlement_mode: cargo.cargoSelectMode.itemKey,
         remark: remark,
       }
 
-      if (tServices) {
-        params.sendservice = JSON.stringify(tServices)
-      }
+      // if (tServices) {
+      //   params.sendservice = JSON.stringify(tServices)
+      // }
 
       // if (this.data.sendDate) {
       //   const bookingTime = this.data.sendDate + ' ' + this.data.sendTime
@@ -426,13 +513,10 @@ Page({
         wx.hideLoading()
         if (res && res.success) {
           wx.showToast({
-            title: '下单成功',
+            title: '创建成功',
             success: () => {
-              var pages = getCurrentPages();
-              var prevPage = pages[pages.length - 2]; //上一个页面
-              prevPage.onLoad()
-              wx.navigateBack({
-                delta: 1
+              wx.reLaunch({
+                url: '../index/index',
               })
             }
           })
@@ -514,7 +598,9 @@ Page({
               receiveCity: data.city_id,
               receiveDistrict: data.district_id,
               receiveAddress: data.address,
-              receiveLocation: data.province + data.city + data.district + data.address
+              receiveLocation: data.province + data.city + data.district + data.address,
+              receiveCode: data.company_code,
+              receiveCompany: data.contact_company
             },
             WReceive: false,
           })
@@ -529,7 +615,9 @@ Page({
               sendCity: data.city_id,
               sendDistrict: data.district_id,
               sendAddress: data.address,
-              sendLocation: data.province + data.city + data.district + data.address
+              sendLocation: data.province + data.city + data.district + data.address,
+              sendCode: data.company_code,
+              sendCompany: data.contact_company
             },
             WSend: false,
           })
@@ -571,13 +659,13 @@ Page({
    */
   onLoad: function (options) {
     //-----------仅测试用---------------
-    const shopOrderNo = options.no
-    this.setData({
-      shopOrderNo
-    })
+    // const shopOrderNo = options.no
+    // this.setData({
+    //   shopOrderNo
+    // })
     //-----------仅测试用---------------
 
-    // this.loadParam(options)
+    this.loadParam(options)
     this.getOrderAgreement()
     this.getDefaultPubAddress()
   },

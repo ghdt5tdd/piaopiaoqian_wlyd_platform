@@ -17,8 +17,17 @@ Page({
     bookingOrders: [],
     hideShadow: true,
     hideOrdering: true,
-    hide: true, 
-    
+    hide: true,
+
+  },
+
+  bindSelectOrderInput(e) {
+    const key = e.currentTarget.dataset.key
+    const selectOrder = this.data.selectOrder
+    selectOrder[key] = e.detail.value
+    this.setData({
+      selectOrder
+    })
   },
 
   scanShopOrder() {
@@ -61,6 +70,11 @@ Page({
 
     if (command === 'order') {
       this.order(index)
+      return;
+    } else if (command === 'update') {
+      wx.navigateTo({
+        url: '../send/send?bookOrderId=' + id,
+      })
       return;
     } else {
       wx.showModal({
@@ -118,6 +132,10 @@ Page({
   //弹出订单信息窗口
   order(index) {
     const selectOrder = this.data.bookingOrders[index]
+    selectOrder.new_total_weight = selectOrder.total_weight
+    selectOrder.new_total_volume = selectOrder.total_volume
+    selectOrder.new_total_packing_quantity = selectOrder.total_packing_quantity
+    selectOrder.new_remark = selectOrder.remark
     this.setData({
       hideShadow: false,
       hideOrdering: false,

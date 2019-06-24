@@ -54,6 +54,11 @@ Page({
     if (command === 'order') {
       this.order(index)
       return;
+    } else if (command === 'update') {
+      wx.navigateTo({
+        url: '../send/send?bookOrderId=' + id,
+      })
+      return;
     } else {
       wx.showModal({
         title: '操作确认',

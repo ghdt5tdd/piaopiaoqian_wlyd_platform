@@ -97,23 +97,23 @@
   <view class='pop-pickup-content'>
     <view class='pop-pickup-item'>
       <view class='pop-pickup-label'>货物类型</view>
-      <view class='pop-pickup-name'>{{selectOrder.goods_class_name}}</view>
+      <view class='pop-pickup-name'>{{selectOrder.goods_class_name}}</view>   
     </view>
     <view class='pop-pickup-item'>
       <view class='pop-pickup-label'>重量(kg)</view>
-      <view class='pop-pickup-name'>{{selectOrder.total_weight}}</view>
+      <view class='pop-pickup-name'><input value="{{selectOrder.new_total_weight}}" bindinput='bindSelectOrderInput' data-key="new_total_weight"></input></view>
     </view>
     <view class='pop-pickup-item'>
       <view class='pop-pickup-label'>体积(m³)</view>
-      <view class='pop-pickup-name'>{{selectOrder.total_volume}}</view>
+      <view class='pop-pickup-name'><input value="{{selectOrder.new_total_volume}}" bindinput='bindSelectOrderInput' data-key="new_total_volume"></input></view>
     </view>
     <view class='pop-pickup-item'>
       <view class='pop-pickup-label'>件数</view>
-      <view class='pop-pickup-name'>{{selectOrder.total_packing_quantity}}</view>
+      <view class='pop-pickup-name'><input value="{{selectOrder.new_total_packing_quantity}}" bindinput='bindSelectOrderInput' data-key="new_total_packing_quantity"></input></view>
     </view>
     <view class='pop-pickup-item'>
       <view class='pop-pickup-label'>用户留言</view>
-      <view class='pop-pickup-name'>{{selectOrder.remark}}</view>
+      <view class='pop-pickup-name'><input value="{{selectOrder.new_remark}}" bindinput='bindSelectOrderInput' data-key="new_remark"></input></view>
     </view> 
   </view>
   <view class='pop-bottom-half'>

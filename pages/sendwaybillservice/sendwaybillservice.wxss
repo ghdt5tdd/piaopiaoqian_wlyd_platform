@@ -1,0 +1,16 @@
+/* pages/sendwaybillservice/sendwaybillservice.wxss */
+@import '../addEdit/addEdit.wxss';
+
+.section-title {
+  width: 200rpx;
+  text-align: left;
+}
+
+.section-info {
+  text-align: right;
+}
+
+.section-bar text {
+  margin-left: 10rpx;
+  display: block
+}

@@ -4,7 +4,7 @@
       <view class="section-title">{{item.name}}</view>
       <view class="section-info">
         <block wx:if="{{item.html_items === 'radio'}}">
-          <picker bindchange="selectRadio" data-index="{{index}}" data-text="{{item.html_items_dic[item.value].itemText}}" range-key="itemText"  value="item.html_items_dic[item.value].itemKey" 
+          <picker bindchange="selectRadio" data-index="{{index}}" data-text="{{item.html_items_dic[item.value].itemText}}" range-key="itemText"  
           range="{{item.html_items_dic}}">
           <view class="picker">
             {{item.html_items_dic[item.value].itemText}}

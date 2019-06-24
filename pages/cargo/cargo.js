@@ -166,7 +166,7 @@ Page({
               cargoList: res.data,
               cargo: cargo.cargoType,
               count: cargo.cargoNum,
-              packaged: cargo.cargoPack,
+              packaged: cargo.cargoPack || '',
               volumn: cargo.cargoVolumn,
               weight: cargo.cargoWeight,
             })

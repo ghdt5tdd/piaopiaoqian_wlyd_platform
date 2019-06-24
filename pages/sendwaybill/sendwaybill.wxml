@@ -1,5 +1,6 @@
 <!--pages/sendwaybill/sendwaybill.wxml-->
-<view class='send-headline'>{{carrier.carriername}}<block wx:if="{{shopOrderNo}}">-{{shopOrderNo}}</block></view>
+<view class='send-headline'>{{appName}}<block wx:if="{{shopOrderNo}}">-{{shopOrderNo}}</block></view>
+<scroll-view scroll-y style='height:calc(100vh - 186rpx)'> 
 <view class='send-address'>
   <view class='send-address-item' bindtap='toSend'>
     <image class='send-address-pic' src='../../images/w_send.png'></image>
@@ -45,7 +46,7 @@
     <view class='send-block-label'>增值服务</view>
     <view class='send-block-default' wx:if="{{WService}}">选填</view>
     <view class='send-block-info' wx:else>
-      <view wx:for="{{tServices}}" wx:key="set_id">{{item.name}} <block wx:if="{{item.html_items === 'radio'}}">{{item.text}} </block><block wx:else>{{item.value}} </block></view>
+      <view wx:for="{{tServices}}" wx:for-item="service" wx:key="value">{{service.text}}  {{service.valueText}} </view>
     </view>
     <image class='send-block-next' src='../../images/w_next.png'></image>
   </view>
@@ -66,11 +67,56 @@
   </view> -->
 <!-- </view> -->
 
-<view class='send-remark'>
-  <view class='send-remark-label'>备注信息</view>
-  <textarea placeholder='例：请开大车提货'  hidden="{{markFcous}}" value="{{remark}}" bindinput='bindInput' data-key="remark" ></textarea>
-</view>
+  <view class='send-bar'>
+    <view class='send-bar-label'>是否送货上门</view>
+    <view class='send-bar-info' >
+      <picker bindchange="selectRadio" data-key="is_send_cargo" data-val="sendcargoTime" range-key="{{'text'}}" range="{{whether}}">
+      <view class="picker">
+        {{whether[is_send_cargo].text}}
+      </view>
+      </picker>
+    </view>
+    <image class='send-bar-next' src='../../images/w_next.png'></image>
+  </view>
 
+  <view wx:if="{{is_send_cargo === '1'}}">
+    <view class='send-bar' bindtap='showPick' data-key="sendcargoTime">
+      <view class='send-bar-label'>送货上门时间</view>
+        <view class='send-bar-info' >
+          <view>{{sendcargoTime}}</view>
+        </view>
+      <image class='send-bar-next' src='../../images/w_next.png'></image>
+    </view>
+  </view>
+
+  <view class='send-bar'>
+    <view class='send-bar-label'>是否上门取货</view>
+    <view class='send-bar-info' >
+      <picker bindchange="selectRadio" data-key="is_get_cargo" data-val="getcargoTime" range-key="{{'text'}}" range="{{whether}}">
+      <view class="picker">
+        {{whether[is_get_cargo].text}}
+      </view>
+      </picker>
+    </view>
+    <image class='send-bar-next' src='../../images/w_next.png'></image>
+  </view>
+
+  <view wx:if="{{is_get_cargo === '1'}}">
+    <view class='send-bar' bindtap='showPick' data-key="getcargoTime">
+      <view class='send-bar-label'>上门取货时间</view>
+        <view class='send-bar-info' >
+          <view>{{getcargoTime}}</view>
+        </view>
+      <image class='send-bar-next' src='../../images/w_next.png'></image>
+    </view>
+  </view>
+
+  <view class='send-remark'>
+    <view class='send-remark-label'>备注信息</view>
+    <textarea placeholder='例：请开大车提货' hidden="{{markFcous}}"  value="{{remark}}" bindinput='bindInput' data-key="remark" ></textarea>
+  </view>
+
+</scroll-view>
 <view class='send-bottom'>
   <view class='send-bottom-rule'>
     <image src='{{ruleIcon}}' date-status="{{ruleStatus}}" bindtap='ruleCheck'></image>
@@ -78,31 +124,19 @@
       <text>《发货服务条款》</text>
     </view>
   </view>
-  <view class='send-bottom-opt' bindtap='submitOrder'>提交订单</view>
+  <view class='send-bottom-opt' bindtap='submitOrder'>创建运单</view>
 </view>
 
 
 
-<view class='pop-shadow' bindtap="hide" hidden="{{hideShadow}}"></view>
+<view class='pop-shadow' bindtap="hideTime" hidden="{{hideShadow}}"></view>
 <view class='pop-up pop-time' hidden="{{hideTime}}">
   <view class='pop-head'>
     <view bindtap="hideTime">关闭</view>
-    <view class='save' bindtap="chooseTime">确认</view>
+    <view class='save' bindtap="hideTime">确认</view>
   </view>
-
-  <view class='datelist'>
-    <view bindtap="select" wx:for="{{ calendar }}" wx:for-item="item" wx:for-index="index" data-index="{{ index }}" class='listItem {{index==currentIndex? "current":""}}'>
-      <view class='name'>{{ item.week }}</view>
-      <view class='date'>{{ item.date }}</view>
-    </view>
-  </view>
-
-  <view class='timelist'>
-    <view wx:for="{{ timeArr }}" wx:for-item="timeItem" wx:for-index="timeIndex" data-Tindex="{{ timeIndex }}" wx:key="timeEnd" bindtap='selectTime' class='listItem {{ currentTime==timeIndex? "current":"" }} {{ timeItem.overtime? "over":"" }}'>
-      <view>{{ timeItem.timeEnd }}</view>
-    </view>
-  </view>
-
+  <datetime-picker id="sendcargoTime" bind:datechange="changeSendTime"></datetime-picker>
+  <datetime-picker id="getcargoTime" bind:datechange="changeGetTime"></datetime-picker>
 </view>
 
 <view class='pop-up pop-rule' hidden="{{hideRule}}">
@@ -124,3 +158,4 @@
       <view class='pop-opt-color' bindtap='toOrder' data-status="s1" data-id="{{orderId}}" data-time="{{orderTime}}">查看订单</view>
    </view>
 </view>
+

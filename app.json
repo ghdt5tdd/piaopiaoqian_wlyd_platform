@@ -31,6 +31,7 @@
     "pages/ordertrail/ordertrail",
     "pages/waybill/waybill",
     "pages/sendwaybill/sendwaybill",
+    "pages/sendwaybillservice/sendwaybillservice",
     "pages/collect/collect"
   ],
   "window": {
