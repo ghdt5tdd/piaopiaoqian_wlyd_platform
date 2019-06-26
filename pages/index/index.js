@@ -68,10 +68,11 @@ Page({
     const commandText = e.currentTarget.dataset.commandText
     const _this = this
 
-    if (command === 'order') {
-      this.order(index)
-      return;
-    } else if (command === 'update') {
+    // if (command === 'order') {
+    //   this.order(index)
+    //   return;
+    // } else 
+    if (command === 'update') {
       wx.navigateTo({
         url: '../send/send?bookOrderId=' + id,
       })

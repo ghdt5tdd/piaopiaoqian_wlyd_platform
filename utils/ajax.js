@@ -1,5 +1,4 @@
 const util = require('util.js')
-const app = getApp()
 
 const _config = {
   // serverUrl: 'https://fall.wlhn.com/fallapp-child-dlxapp-userlla/',
