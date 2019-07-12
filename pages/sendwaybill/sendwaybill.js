@@ -658,14 +658,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //-----------仅测试用---------------
-    // const shopOrderNo = options.no
-    // this.setData({
-    //   shopOrderNo
-    // })
-    //-----------仅测试用---------------
+    //-----------测试用---------------
+    const shopOrderNo = options.no
+    this.setData({
+      shopOrderNo
+    })
+    //-----------测试用---------------
 
-    this.loadParam(options)
+    //-----------正式用---------------
+    // this.loadParam(options)
+    //-----------正式用---------------
+
     this.getOrderAgreement()
     this.getDefaultPubAddress()
   },

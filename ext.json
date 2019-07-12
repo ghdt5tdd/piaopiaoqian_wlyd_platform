@@ -1,20 +1,31 @@
 {
   "extEnable": true,
-  "extAppid": "wx007df2ff146930b4",
+  "extAppid": "wx2ee9bba093c003f1",
   "directCommit": false,
   "ext": {
-    "APP_ID": "wx007df2ff146930b4",
-    "PLATFORM_APP_AREA": "a736160b9b8949f99ed28dcf246f0f66",
+    "APP_ID": "wx2ee9bba093c003f1",
+    "PLATFORM_APP_AREA": "jituosuyun",
     "QQ_Map_KEY": "VP4BZ-7CZCR-RDHWL-WUKKF-Q5GN2-5VFOE",
-    "APP_NAME": "物流红娘",
+    "APP_NAME": "极托速运",
+    "SHARE_SETTING": {
+      "IS_OPEN_GLOBAL": true,
+      "DEFAULT": {
+        "title": "急件空运/宠物托运/落地专车派送服务",
+        "imageUrl": "http://sping-cloud-fall.oss-cn-shanghai.aliyuncs.com/wlhn/wxmini/resource/jitusuyun/share_1.jpg",
+        "path": "pages/index/index"
+      },
+      "PAGE_SETTING": {
+        
+      }
+    },
     "APP_MODULES": {
-        "ORDER_IS_NEED_CARRIER": true,
+        "ORDER_IS_NEED_CARRIER": false,
         "ORDER_IS_NEED_RECEIVER": true
     }
   },
   "extPages": {
     "pages/index/index": {
-      "navigationBarTitleText": "物流云店"
+      "navigationBarTitleText": "极托速运"
     }
   }
 }

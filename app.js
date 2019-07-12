@@ -6,6 +6,7 @@ App({
     const extConfig = wx.getExtConfigSync ? wx.getExtConfigSync() : {}
     console.log(extConfig)
     this.loadSettingParam(extConfig)
+    this.setGlobalShareAppMessage()
     this.checkUpdate()
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -157,7 +158,36 @@ App({
     this.globalData.appId = config.APP_ID
     this.globalData.appName = config.APP_NAME
     this.globalData.appModules = config.APP_MODULES
+    this.globalData.shareSetting = config.SHARE_SETTING
     ajax._config.platformAppArea = config.PLATFORM_APP_AREA
+  },
+
+  setGlobalShareAppMessage() {
+    const shareSetting = this.globalData.shareSetting
+    const is_open_global = shareSetting.IS_OPEN_GLOBAL
+    const default_setting = shareSetting.DEFAULT
+    const page_setting = shareSetting.PAGE_SETTING
+
+    if (is_open_global) {
+      wx.onAppRoute(res => {
+        //获取加载的页面
+        const pages = getCurrentPages()
+          //获取当前页面的对象
+        const view = pages[pages.length - 1]
+        if(view) {
+          const route = view.route
+          let share_setting = {}
+          if (page_setting.hasOwnProperty(route)) {
+            share_setting = page_setting[route]
+          } else {
+            share_setting = default_setting
+          }
+          view.onShareAppMessage = function () {
+            return share_setting
+          }
+        }
+      })
+    }
   },
 
   globalData: {
@@ -166,6 +196,7 @@ App({
     appId: '',
     appName: '',
     appModules: {},
+    shareSetting: {},
     isBindPhone: false,
     openId: '',
     sessionKey: '',
