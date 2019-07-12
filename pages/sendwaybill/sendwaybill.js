@@ -659,14 +659,14 @@ Page({
    */
   onLoad: function (options) {
     //-----------测试用---------------
-    const shopOrderNo = options.no
-    this.setData({
-      shopOrderNo
-    })
+    // const shopOrderNo = options.no
+    // this.setData({
+    //   shopOrderNo
+    // })
     //-----------测试用---------------
 
     //-----------正式用---------------
-    // this.loadParam(options)
+    this.loadParam(options)
     //-----------正式用---------------
 
     this.getOrderAgreement()

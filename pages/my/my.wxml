@@ -81,13 +81,13 @@
           <image class='my-bar-next' src='../../images/w_next.png'></image>
         </view>
       </navigator>
-      <navigator url="../sendwaybill/sendwaybill?no=test1234" hover-class='none'>
+      <!-- <navigator url="../sendwaybill/sendwaybill?no=test1234" hover-class='none'>
         <view class='my-bar'>
           <image class='my-bar-icon' src='../../images/my-about.png'></image>
           <view class='my-bar-name'>运单登记测试</view>
           <image class='my-bar-next' src='../../images/w_next.png'></image>
         </view>
-      </navigator>
+      </navigator> -->
       <!-- <navigator open-type="exit" target="miniProgram" bindcomplete="clearStorage"> -->
         <view class='my-bar' wx:if="{{click_clearStorage >= 8}}" bindtap='clearStorage'>
           <image class='my-bar-icon' src='../../images/my-about.png'></image>
