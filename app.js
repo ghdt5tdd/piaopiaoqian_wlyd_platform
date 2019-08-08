@@ -168,7 +168,7 @@ App({
     const default_setting = shareSetting.DEFAULT
     const page_setting = shareSetting.PAGE_SETTING
 
-    if (is_open_global) {
+    if (is_open_global == 1) {
       wx.onAppRoute(res => {
         //获取加载的页面
         const pages = getCurrentPages()

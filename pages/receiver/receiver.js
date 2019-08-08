@@ -10,20 +10,23 @@ Page({
    */
   data: {
     orderStatus: [{
-      name: "待支付",
-      value: "0",
+      name: "全部",
+      value: "all",
+    }, {
+      name: "待发货",
+      value: "wait_delivery",
+    }, {
+      name: "运输中",
+      value: "arrive",
     }, {
       name: "待签收",
-      value: "1",
+      value: "wait_evaluate",
     }, {
-      name: "待评价",
-      value: "2",
-    }, {
-      name: "已评价",
-      value: "3",
-    }, ],
+      name: "已签收",
+      value: "evaluate",
+    }],
     orderNo: '',
-    selectStatus: 0,
+    selectStatus: 'all',
     shopOrders: [],
     page: 1,
     pageSize: 10,
@@ -164,7 +167,7 @@ Page({
 
   //选择状态
   selectStatus: function (e) {
-    var index = parseInt(e.currentTarget.dataset.index)
+    var index = e.currentTarget.dataset.index
     this.setData({
       selectStatus: index,
       page: 1,
@@ -725,7 +728,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+ 
   },
 
   /**

@@ -15,7 +15,7 @@
     </view>
     <image class='send-address-next' src='../../images/w_next.png'></image>
   </view>
-  <view class='send-address-item' bindtap='toReceive' wx:if="{{order_is_need_receiver}}">
+  <view class='send-address-item' bindtap='toReceive' wx:if="{{order_is_need_receiver == 1}}">
     <image class='send-address-pic' src='../../images/w_receive.png'></image>
     <view class='send-address-default' wx:if="{{WReceive}}">请选择收件地址</view>
     <view class='send-address-info' wx:else>
@@ -52,7 +52,7 @@
 </view>
 
 <view class='send-block'>
-  <view class='send-bar send-bar-forwarder' wx:if="{{order_is_need_carrier}}" bindtap='toforwarder'>
+  <view class='send-bar send-bar-forwarder' wx:if="{{order_is_need_carrier == 1}}" bindtap='toforwarder'>
     <view class='send-bar-label'>承运商</view>
     <view wx:if="{{carrier}}" class='send-bar-info' >{{carrier.contact_man}}</view>
     <view wx:else class='send-bar-info'>请选择承运商</view>

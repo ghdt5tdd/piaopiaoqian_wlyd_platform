@@ -13,8 +13,8 @@ Page({
     WReceive: true,
     WCargo: true,
     WService: true,
-    order_is_need_carrier: app.globalData.appModules.ORDER_IS_NEED_CARRIER,
-    order_is_need_receiver: app.globalData.appModules.ORDER_IS_NEED_RECEIVER,
+    order_is_need_carrier: 1,
+    order_is_need_receiver: 1,
 
     bookOrderId: undefined,  //修改订单ID
 
@@ -642,6 +642,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      order_is_need_carrier: app.globalData.appModules.ORDER_IS_NEED_CARRIER,
+      order_is_need_receiver: app.globalData.appModules.ORDER_IS_NEED_RECEIVER,
+    }, () => {
+      console.log(this.data.order_is_need_carrier == 1)
+      console.log(this.data.order_is_need_receiver == 1)
+    })
+ 
     const bookOrderId = options.bookOrderId
     if(bookOrderId) {
       //加载要修改的订单信息

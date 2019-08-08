@@ -46,6 +46,14 @@
       <view class='waybill-introduce-label'>重量体积</view>
       <view class='waybill-introduce-info'>{{shopOrderDetail.total_weight}}kg {{shopOrderDetail.total_volume}}m³</view>
     </view>
+    <view class='waybill-introduce-item'>
+      <view class='waybill-introduce-label'>支付方式</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.settlement_mode_text}}</view>
+    </view>
+    <view class='waybill-introduce-item'>
+      <view class='waybill-introduce-label'>运费</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.freight_amount}}</view>
+    </view>
     <!-- <view class='waybill-introduce-item'>
       <view class='waybill-introduce-label'>增值服务</view>
       <view class='waybill-introduce-info'>

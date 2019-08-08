@@ -8,7 +8,7 @@
     "QQ_Map_KEY": "VP4BZ-7CZCR-RDHWL-WUKKF-Q5GN2-5VFOE",
     "APP_NAME": "极托速运",
     "SHARE_SETTING": {
-      "IS_OPEN_GLOBAL": true,
+      "IS_OPEN_GLOBAL": 1,
       "DEFAULT": {
         "title": "急件空运/宠物托运/落地专车派送服务",
         "imageUrl": "http://sping-cloud-fall.oss-cn-shanghai.aliyuncs.com/wlhn/wxmini/resource/jitusuyun/share_1.jpg",
@@ -19,8 +19,8 @@
       }
     },
     "APP_MODULES": {
-        "ORDER_IS_NEED_CARRIER": false,
-        "ORDER_IS_NEED_RECEIVER": true
+      "ORDER_IS_NEED_CARRIER": 0,
+      "ORDER_IS_NEED_RECEIVER": 1
     }
   },
   "extPages": {

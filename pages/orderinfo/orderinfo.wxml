@@ -91,6 +91,14 @@
       <view class='orderinfo-cargo-info'>{{bookingOrder.pack}}</view>
     </view>
     <view class='orderinfo-cargo-item'>
+      <view class='orderinfo-cargo-label'>支付方式：</view>
+      <view class='orderinfo-cargo-info'>{{bookingOrder.settlement_mode_text}}</view>
+    </view>
+    <view class='orderinfo-cargo-item'>
+      <view class='orderinfo-cargo-label'>运费：</view>
+      <view class='orderinfo-cargo-info'>{{bookingOrder.transport_fee}}</view>
+    </view>
+    <view class='orderinfo-cargo-item'>
       <view class='orderinfo-cargo-label'>备注信息：</view>
       <view class='orderinfo-cargo-info'>{{bookingOrder.remark}}</view>
     </view>
