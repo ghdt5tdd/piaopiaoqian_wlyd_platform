@@ -91,8 +91,12 @@
   line-height: 42rpx;
 }
 
-.my-content {
-  height: calc(100vh - 350rpx);
+.my-content{
+  height: calc(100vh - 460rpx);
+}
+
+.my-content view{
+  overflow: hidden
 }
 
 .my-support {
@@ -109,6 +113,9 @@
 }
 
 .my-support image {
-  width: 40rpx;
-  height: 40rpx;
+  width: 160rpx;
+  height: 96rpx;
 }
+
+
+

@@ -28,17 +28,18 @@
     </view> -->
     <view class='my-block' >
       <!-- <navigator url="../receiver/receiver" hover-class='none'> -->
-        <view class='my-bar' bindtap='toShopOrder' data-type = '0'>
-          <image class='my-bar-icon' src='../../images/my-receiver.png'></image>
-          <view class='my-bar-name'>查收货</view>
-          <image class='my-bar-next' src='../../images/w_next.png'></image>
-        </view>
       <!-- </navigator> -->
 
       <!-- <navigator url="../consignor/consignor" hover-class='none'> -->
         <view class='my-bar' bindtap='toShopOrder' data-type = '1'>
           <image class='my-bar-icon' src='../../images/my-consignor.png'></image>
           <view class='my-bar-name'>查发货</view>
+          <image class='my-bar-next' src='../../images/w_next.png'></image>
+        </view>
+        
+        <view class='my-bar' bindtap='toShopOrder' data-type = '0'>
+          <image class='my-bar-icon' src='../../images/my-receiver.png'></image>
+          <view class='my-bar-name'>查收货</view>
           <image class='my-bar-next' src='../../images/w_next.png'></image>
         </view>
       <!-- </navigator> -->
@@ -110,10 +111,14 @@
 </view>
 </scroll-view>
 
+
 <view class='my-support'>
-  <image src="../../images/company2.jpg" mode='widthFix'></image>
+  <image src="../../images/company2.png" mode='aspectFill'></image>
   <view class='my-support-text'>
-    技术支持：华翕软件股份有限公司 0577-88902568
+    技术支持：华翕软件股份有限公司
+  </view>
+  <view class='my-support-text'>
+    0577-88902568
   </view>
 </view>
 
