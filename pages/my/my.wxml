@@ -30,7 +30,7 @@
       <!-- <navigator url="../receiver/receiver" hover-class='none'> -->
         <view class='my-bar' bindtap='toShopOrder' data-type = '0'>
           <image class='my-bar-icon' src='../../images/my-receiver.png'></image>
-          <view class='my-bar-name'>我是收货人</view>
+          <view class='my-bar-name'>查收货</view>
           <image class='my-bar-next' src='../../images/w_next.png'></image>
         </view>
       <!-- </navigator> -->
@@ -38,7 +38,7 @@
       <!-- <navigator url="../consignor/consignor" hover-class='none'> -->
         <view class='my-bar' bindtap='toShopOrder' data-type = '1'>
           <image class='my-bar-icon' src='../../images/my-consignor.png'></image>
-          <view class='my-bar-name'>我是发货人</view>
+          <view class='my-bar-name'>查发货</view>
           <image class='my-bar-next' src='../../images/w_next.png'></image>
         </view>
       <!-- </navigator> -->

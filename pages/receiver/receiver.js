@@ -567,12 +567,12 @@ Page({
     switch(type) {
       case '0':
         wx.setNavigationBarTitle({
-          title: '我是收货人'
+          title: '查收货'
         })
         break;
       case '1':
         wx.setNavigationBarTitle({
-          title: '我是发货人'
+          title: '查发货'
         })
         break;
       default:
