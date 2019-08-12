@@ -90,11 +90,11 @@
       <view class='orderinfo-cargo-label'>货物包装：</view>
       <view class='orderinfo-cargo-info'>{{bookingOrder.pack}}</view>
     </view>
-    <view class='orderinfo-cargo-item'>
+    <view class='orderinfo-cargo-item' wx:if="{{bookingOrder.settlement_mode_text}}">
       <view class='orderinfo-cargo-label'>付款方式：</view>
       <view class='orderinfo-cargo-info'>{{bookingOrder.settlement_mode_text}}</view>
     </view>
-    <view class='orderinfo-cargo-item'>
+    <view class='orderinfo-cargo-item' wx:if="{{bookingOrder.transport_fee}}">
       <view class='orderinfo-cargo-label'>运费：</view>
       <view class='orderinfo-cargo-info'>{{bookingOrder.transport_fee}}</view>
     </view>
