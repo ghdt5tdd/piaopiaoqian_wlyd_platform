@@ -91,7 +91,7 @@
       <view class='orderinfo-cargo-info'>{{bookingOrder.pack}}</view>
     </view>
     <view class='orderinfo-cargo-item'>
-      <view class='orderinfo-cargo-label'>支付方式：</view>
+      <view class='orderinfo-cargo-label'>付款方式：</view>
       <view class='orderinfo-cargo-info'>{{bookingOrder.settlement_mode_text}}</view>
     </view>
     <view class='orderinfo-cargo-item'>

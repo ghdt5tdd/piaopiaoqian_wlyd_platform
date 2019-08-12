@@ -47,7 +47,7 @@
       <view class='waybill-introduce-info'>{{shopOrderDetail.total_weight}}kg {{shopOrderDetail.total_volume}}m³</view>
     </view>
     <view class='waybill-introduce-item'>
-      <view class='waybill-introduce-label'>支付方式</view>
+      <view class='waybill-introduce-label'>付款方式</view>
       <view class='waybill-introduce-info'>{{shopOrderDetail.settlement_mode_text}}</view>
     </view>
     <view class='waybill-introduce-item'>
