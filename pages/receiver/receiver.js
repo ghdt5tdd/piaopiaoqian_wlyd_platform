@@ -25,6 +25,7 @@ Page({
       name: "已签收",
       value: "evaluate",
     }],
+    getlocation: true,
     orderNo: '',
     selectStatus: 'all',
     shopOrders: [],
@@ -177,11 +178,39 @@ Page({
       this.getMiniShopOrderList()
     })
   },
+  toSign(e) {
+    const index = e.currentTarget.dataset.index
+    const shopOrderDetail = this.data.shopOrders[index]
+    //判断运单是否为接收人到付，到付则先须先进行付款，不为到付则直接进入签收页面
+    if (shopOrderDetail.settlement_mode === 'receiver_pay') {
+      const consignee_arrive_pay_amount = shopOrderDetail.consignee_arrive_pay_amount
+      const debours_amount = shopOrderDetail.debours_amount
+      const amount = shopOrderDetail.amount
+      //这里还需要判断运单的支付状态，已支付的话也是直接跳转到签收
+      if (shopOrderDetail.is_pay == 1) {
+        return this.showSign(index)
+      } else {
+        wx.showToast({
+          title: '暂不支持支付',
+        })
+        // const amount = shopOrderDetail.amount || 0
+        // const consignee_arrive_pay_amount = shopOrderDetail.consignee_arrive_pay_amount || 0
+        // const debours_amount = shopOrderDetail.debours_amount || 0
+        // wx.navigateTo({
+        //   url: '../pay/pay?amount=' + amount
+        //     + '&consignee_arrive_pay_amount=' + consignee_arrive_pay_amount
+        //     + '&debours_amount=' + debours_amount
+        //     + '&id=' + shopOrderDetail.id
+        // })
+        return;
+      }
+    } else {
+      return this.showSign(index)
+    }
+  },
 
   //打开签收弹窗
-  showSign: function (e) {
-    const index = e.currentTarget.dataset.index
-
+  showSign: function (index) {
     this.setData({
       hide: false,
       hideSign: false,
@@ -207,18 +236,84 @@ Page({
   },
 
 
+  signOrder: function () {
+    const idList = this.data.selectOrder.id
+    const latitude = this.data.latitude
+    const longitude = this.data.longitude
+    const actualDate = this.data.actualDate
+    const actual_arrive_date = this.data.actualDate + ' ' + this.data.actualTime
+    const estimated_arrive_date = this.data.selectOrder.estimated_arrive_date
+    const now = this.data.now
+    const timely = this.data.timely
+
+    if (util.compareDate(actual_arrive_date, now) > 0) {
+      wx.showModal({
+        title: '日期错误',
+        content: '实际到货时间不得大于目前时间',
+      })
+      return;
+    }
+
+    if (!timely && util.compareDate(estimated_arrive_date, actual_arrive_date) >= 0) {
+      wx.showModal({
+        title: '日期错误',
+        content: '不及时的情况下实际到货时间不能小于等于预计到货时间',
+      })
+      return;
+    }
+
+    if (this.data.getlocation) {
+      wx.showLoading({
+        title: '正在签收中...',
+        mask: true
+      })
+      ajax.postApi('mini/program/order/receiptShopOrder', {
+        idList,
+        location: longitude + ',' + latitude,
+        actual_arrive_date: this.data.actualDate + ' ' + this.data.actualTime,
+        sign_date: this.data.now,
+        quantity: this.data.actualNumber,
+        timeliness: this.data.timeliness,
+      }, (err, res) => {
+        wx.hideLoading()
+        if (res && res.success) {
+          wx.showToast({
+            title: '签收成功',
+          })
+          this.data.orders.splice(this.data.selectIndex, 1)
+          this.setData({
+            orders: this.data.orders,
+            hide: true,
+            hideSign: true,
+          })
+        } else {
+          wx.showToast({
+            title: res.text,
+            duration: 1000
+          })
+        }
+      })
+
+    } else {
+      wx.showToast({
+        title: '坐标获取异常',
+      })
+    }
+  },
 
 
 
 
   selectRadio: function (e) {
     if (e.currentTarget.dataset.index === 0) {
-      const actualDate = this.data.selectOrder.estimated_arrive_date.substring(0, 10)
-      const actualTime = this.data.selectOrder.estimated_arrive_date.substring(11)
-      this.setData({
-        actualDate,
-        actualTime,
-      })
+      if (this.data.selectOrder.estimated_arrive_date) {
+        const actualDate = this.data.selectOrder.estimated_arrive_date.substring(0, 10)
+        const actualTime = this.data.selectOrder.estimated_arrive_date.substring(11)
+        this.setData({
+          actualDate,
+          actualTime,
+        })
+      }
     }
     this.setData({
       timely: e.currentTarget.dataset.index === 0 ? true : false,
@@ -591,11 +686,40 @@ Page({
     const type = options.type 
     this.setNowDate()
     this.setTitle(type)
+    this.getLocation()
     this.setData({
       type
     }, () => {
       this.getMiniShopOrderList()
     })
+  },
+
+  getLocation: function () {
+    let latitude = this.data.latitude
+    let longitude = this.data.longitude
+    if (!latitude) {
+      wx.getLocation({
+        type: 'wgs84',//默认为 wgs84 返回 gps 坐标，gcj02 返回可用于wx.openLocation的坐标
+        success: res => {
+          console.log(res)
+          latitude = res.latitude
+          longitude = res.longitude
+          this.setData({
+            latitude,
+            longitude
+          })
+        },
+        fail: res => {
+          this.setData({
+            getlocation: false
+          })
+          wx.showModal({
+            title: '坐标异常',
+            content: '获取用户当前坐标失败,无法进行签收',
+          })
+        }
+      })
+    }
   },
 
   //选择日期

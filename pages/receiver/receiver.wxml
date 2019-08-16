@@ -53,7 +53,7 @@
                 <navigator url="../logistics/logistics" hover-class='none'>物流跟踪</navigator>
               </view> -->
               <view class='order-opt-bar'>
-                <view class='order-opt-item' wx:if="{{item.order_state_dic == '155' || item.order_state_dic == '160' ||item.order_state_dic == '310' ||item.order_state_dic == '320' ||item.order_state_dic == '330' ||item.order_state_dic == '356'}}" bindtap='showSign' data-shoporder-id="{{item.id}}" data-index="{{index}}">一键签收</view>
+                <view class='order-opt-item' wx:if="{{item.order_state_dic == '155' || item.order_state_dic == '160' ||item.order_state_dic == '310' ||item.order_state_dic == '320' ||item.order_state_dic == '330' ||item.order_state_dic == '356'}}" bindtap='toSign' data-shoporder-id="{{item.id}}" data-index="{{index}}">一键签收</view>
               </view>
               <view class='order-opt-bar'>
                 <view class='order-opt-item' wx:if="{{item.order_state_dic == '425' || item.order_state_dic == '430' || item.order_state_dic == '435'}}" 

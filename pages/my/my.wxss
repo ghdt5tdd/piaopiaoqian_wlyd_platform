@@ -92,7 +92,7 @@
 }
 
 .my-content{
-  height: calc(100vh - 460rpx);
+  min-height: calc(100vh - 440rpx);
 }
 
 .my-content view{
@@ -100,22 +100,14 @@
 }
 
 .my-support {
-  margin: 30rpx 20rpx;
-  font-size: 0;
+  padding: 50rpx 30rpx  90rpx;
   text-align: center;
-  color: #666;
-}
-
-.my-support-text {
-  font-size: 28rpx;
+  font-size: 26rpx;
+  color: #b8bac4;
   line-height: 40rpx;
-  margin-top: 10rpx;
 }
 
 .my-support image {
-  width: 160rpx;
-  height: 96rpx;
+  width: 80rpx;
+  height: 48rpx;
 }
-
-
-

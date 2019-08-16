@@ -114,12 +114,12 @@
 
 <view class='my-support'>
   <image src="../../images/company2.png" mode='aspectFill'></image>
-  <view class='my-support-text'>
-    技术支持：华翕软件股份有限公司
+  <view>
+    华翕提供技术支持
   </view>
-  <view class='my-support-text'>
+  <!-- <view class='my-support-text'>
     0577-88902568
-  </view>
+  </view> -->
 </view>
 
 <view class='pop-shadow' bindtap="hide" hidden="{{hideShadow}}"></view>
