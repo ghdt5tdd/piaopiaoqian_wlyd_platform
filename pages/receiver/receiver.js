@@ -662,12 +662,12 @@ Page({
     switch(type) {
       case '0':
         wx.setNavigationBarTitle({
-          title: '查收货'
+          title: '查我收货'
         })
         break;
       case '1':
         wx.setNavigationBarTitle({
-          title: '查发货'
+          title: '查我发货'
         })
         break;
       default:

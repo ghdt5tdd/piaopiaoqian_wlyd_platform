@@ -20,7 +20,13 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
-
+  //拨打电话
+  bookTel: function (e) {
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.tel
+    })
+  },
+  
   //微信账号授权
   getUserInfo: function(e) {
     app.globalData.userInfo = e.detail.userInfo
