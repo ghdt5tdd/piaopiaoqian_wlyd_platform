@@ -166,7 +166,6 @@ App({
     const shareSetting = this.globalData.shareSetting
     const is_open_global = shareSetting.IS_OPEN_GLOBAL
     const default_setting = shareSetting.DEFAULT
-    const page_setting = shareSetting.PAGE_SETTING
 
     if (is_open_global == 1) {
       wx.onAppRoute(res => {
@@ -176,14 +175,11 @@ App({
         const view = pages[pages.length - 1]
         if(view) {
           const route = view.route
-          let share_setting = {}
-          if (page_setting.hasOwnProperty(route)) {
-            share_setting = page_setting[route]
-          } else {
-            share_setting = default_setting
-          }
-          view.onShareAppMessage = function () {
-            return share_setting
+          //onShareAppMessage()返回undefined说明此页面没有做特定分享操作，则统一使用默认分享
+          if (view.onShareAppMessage() === undefined) {
+            view.onShareAppMessage = function () {
+              return default_setting
+            }
           }
         }
       })
