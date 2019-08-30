@@ -22,6 +22,7 @@ Page({
     if (encryptedData) {
       wx.checkSession({
         success() {
+          console.log("session exist")
           // session_key 未过期，并且在本生命周期一直有效
           ajax.getApi('mini/program/encryptUserPhone', {
             encryptedData: encodeURIComponent(encryptedData),
@@ -44,6 +45,7 @@ Page({
           })	
         },
         fail() {
+          console.log("session don't exist")
           // session_key 已经失效，需要重新执行登录流程
           wx.login({
             success: res => {
@@ -54,6 +56,12 @@ Page({
               }, (err, rest) => {
                 if (rest && rest.success) {
                   const result = rest.data
+                  app.globalData.openId = result.openid
+                  app.globalData.unionId = result.unionid
+                  app.globalData.sessionKey = result.session_key
+                  wx.setStorageSync('openId' + app.globalData.platformAppArea, result.openid)
+                  wx.setStorageSync('unionId' + app.globalData.platformAppArea, result.unionid)
+                  wx.setStorageSync('sessionKey' + app.globalData.platformAppArea, result.session_key)
                   ajax.getApi('mini/program/encryptUserPhone', {
                     encryptedData: encodeURIComponent(encryptedData),
                     iv,

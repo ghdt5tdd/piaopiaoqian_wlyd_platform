@@ -96,6 +96,13 @@
           <view class='my-bar-name'>重置缓存</view>
           <image class='my-bar-next' src='../../images/w_next.png'></image>
         </view>
+        <navigator wx:if="{{click_clearStorage >= 8}}" url="../bind/bind" hover-class='none'>
+          <view class='my-bar'>
+            <image class='my-bar-icon' src='../../images/my-bind.png'></image>
+            <view class='my-bar-name'>用户绑定</view>
+            <image class='my-bar-next' src='../../images/w_next.png'></image>
+          </view>
+        </navigator>
       <!-- </navigator> -->
     </view>
   </view>

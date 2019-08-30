@@ -21,11 +21,11 @@
     </view>
     <view class='waybill-introduce-item'>
       <view class='waybill-introduce-label'>收货人</view>
-      <view class='waybill-introduce-info'>{{shopOrderDetail.consigner_name}} {{shopOrderDetail.consigner_tel}}</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.consignee_name }} {{shopOrderDetail.consignee_tel}}</view>
     </view>
     <view class='waybill-introduce-item'>
       <view class='waybill-introduce-label'>发货人</view>
-      <view class='waybill-introduce-info'>{{shopOrderDetail.consignee_name}} {{shopOrderDetail.consignee_tel}}</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.consigner_name}} {{shopOrderDetail.consigner_tel }}</view>
     </view>
 
   </view>
