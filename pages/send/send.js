@@ -135,70 +135,70 @@ Page({
   },
 
 
+  getDateStr(addDay) {
+    var result_date = new Date();
+    result_date.setDate(result_date.getDate() + addDay);//获取AddDayCount天后的日期
+    var year = result_date.getFullYear();
+    var month = result_date.getMonth() + 1;//获取当前月份的日期
+    if (month < 10) {
+      month = "0" + month
+    }
+    if (month > 11) {
+      month = "0" + (month - 11)
+    }
+    var day = result_date.getDate();
+    if (day < 10) {
+      day = "0" + day
+    }
+    return year + "-" + month + "-" + day
+  },
+
+  getDateWeekStr(dateStr) {
+    const weeks_ch = ['日', '一', '二', '三', '四', '五', '六']
+    const date = new Date(dateStr)
+    const now_date = new Date()
+    const week_index = date.getDay()
+    const week_str = weeks_ch[week_index]
+
+    var timesDiff = Math.abs(date.getTime() - now_date.getTime());
+    var diffDays = Math.round(timesDiff / (1000 * 60 * 60 * 24));
+    
+    if (diffDays == 0) {
+      return "今天"
+    } else if (diffDays == 1) {
+      return "明天"
+    }
+
+    return '星期' + week_str
+  },
 
 
   //预约时间
   showTime: function (e) {
-    var that = this;
-    that.setData({
+    const calendar = this.data.calendar
+    const today = this.getDateStr(0)
+    const tomorrow = this.getDateStr(1)
+    const after_tomorrow = this.getDateStr(2)
+
+    calendar[0] = {
+      date: today,
+      week: this.getDateWeekStr(today)
+    }
+    calendar[1] = {
+      date: tomorrow,
+      week: this.getDateWeekStr(tomorrow)
+    }
+    calendar[2] = {
+      date: after_tomorrow,
+      week: this.getDateWeekStr(after_tomorrow)
+    }
+
+    this.setData({
       hideShadow: false,
       hideTime: false,
       markFcous: true,
+      calendar
     })
-
-
-    function getThisMonthDays(year, month) {
-      return new Date(year, month, 0).getDate();
-    }
-    // 计算每月第一天是星期几
-    function getFirstDayOfWeek(year, month) {
-      return new Date(Date.UTC(year, month - 1, 1)).getDay();
-    }
-    const date = new Date();
-    const cur_year = date.getFullYear();
-    let cur_month = date.getMonth() + 1;
-    let cur_date = date.getDate();
-    const weeks_ch = ['日', '一', '二', '三', '四', '五', '六'];
-    if (cur_date < 10) {
-      cur_date = "0" + cur_date
-    }
-    if (cur_month < 10) {
-      cur_month = "0" + cur_month
-    }
-    //利用构造函数创建对象
-    function calendar(date, week) {
-      if (date < 10) {
-        date = "0" + date
-      }
-      this.date = cur_year + '-' + cur_month + '-' + date;
-      if (date == cur_date) {
-        this.week = "今天";
-      } else if (date == cur_date + 1) {
-        this.week = "明天";
-      } else {
-        this.week = '星期' + week;
-      }
-    }
-    //当前月份的天数
-    var monthLength = getThisMonthDays(cur_year, cur_month)
-    //当前月份的第一天是星期几
-    var week = getFirstDayOfWeek(cur_year, cur_month)
-    var x = week;
-    for (var i = 1; i <= monthLength; i++) {
-      //当循环完一周后，初始化再次循环
-      if (x > 6) {
-        x = 0;
-      }
-      //利用构造函数创建对象
-      that.data.calendar[i] = new calendar(i, [weeks_ch[x]][0])
-      x++;
-    }
-    //限制要渲染的日历数据天数为4天以内（用户体验）
-    var flag = that.data.calendar.splice(cur_date, that.data.calendar.length - cur_date <= 3 ? that.data.calendar.length : 3)
-    that.setData({
-      calendar: flag
-    })
-
     this.statusTime()
   },
 
