@@ -90,6 +90,7 @@ Page({
     }, (err, res) => {
       if (res && res.success) {
         const data = res.data.payParameters
+        const outTradeNo = res.data.outTradeNo
         wx.hideLoading()
         wx.requestPayment({
           timeStamp: data.timeStamp,
@@ -98,7 +99,9 @@ Page({
           signType: data.signType,
           paySign: data.paySign,
           success: function (res) {
-            console.log(res);
+            if (app.globalData.templateMsgKey) {
+              this.sendPayTemplateMessage(amount, data.prepay_id, outTradeNo)
+            }
           },
           fail: function (res) {
             // fail
@@ -119,6 +122,43 @@ Page({
       }
     })
   },
+
+  sendPayTemplateMessage(amount, prepay_id, outTradeNo) {
+    ajax.postApi('mini/program/template/send', {
+      app_area: app.globalData.platformAppArea,
+      open_id: app.globalData.openId,
+      app_id: app.globalData.appId,
+      form_id: prepay_id,
+      template_id: 'DTGvbIKR3jTMKI1YdlyqREpIUYlsm6pF6aNNACV63Rk',
+      template_data: JSON.stringify({
+        keyword1: {
+          value: app.globalData.memberInfo.user_nickname
+        },
+        keyword2: {
+          value: amount + ''
+        },
+        keyword3: {
+          value: util.getFormatDate(0)
+        },
+        keyword4: {
+          value: outTradeNo
+        },
+        keyword5: {
+          value: '如有问题请咨询客服'
+        },
+      }),
+    }, (err, res) => {
+      if (res && res.success) {
+
+      } else {
+        wx.showToast({
+          title: res.text,
+          duration: 1000
+        })
+      }
+    })
+  },
+
 
 
   // //选择支付方式

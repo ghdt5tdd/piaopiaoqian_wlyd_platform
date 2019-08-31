@@ -154,6 +154,7 @@ App({
 
   loadSettingParam(config) {
     this.globalData.platformAppArea = config.PLATFORM_APP_AREA
+    this.globalData.templateMsgKey = config.TEMPLATE_MSG_KEY
     this.globalData.qqMapKey = config.QQ_Map_KEY
     this.globalData.appId = config.APP_ID
     this.globalData.appName = config.APP_NAME
@@ -189,6 +190,7 @@ App({
   globalData: {
     platformAppArea: '',
     qqMapKey: '',
+    templateMsgKey: {},
     appId: '',
     appName: '',
     appModules: {},
