@@ -20,10 +20,11 @@ Page({
   selectRadio: function (e) {
     var value = e.detail.value
     var index = e.currentTarget.dataset.index
-    var text = e.currentTarget.dataset.text
+    // var text = e.currentTarget.dataset.text
     const myServices = this.data.myServices
-    myServices[index].value = value
-    myServices[index].text = text
+    myServices[index].value = myServices[index].html_items_dic[e.detail.value].itemKey
+    myServices[index].text = myServices[index].html_items_dic[e.detail.value].itemText
+    myServices[index].index = e.detail.value
     this.setData({
       myServices
     })
@@ -79,7 +80,7 @@ Page({
         //单选框默认值
         myServices.forEach(v => {
           if (v.html_items === 'radio') {
-            v.value = 0
+            v.text = '请选择'
           }
         })
 
