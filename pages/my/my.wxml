@@ -2,7 +2,7 @@
 <view class="my-head">
   <button class="userinfo" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" hover-class="none">
     <image class="userinfo-avatar" src="../../images/avatar.png" mode="cover"></image>
-    <view class="userinfo-nickname">点我试试</view>
+    <view class="userinfo-nickname">点击头像授权绑定账号</view>
   </button>
 
   <view class="userinfo" wx:else>

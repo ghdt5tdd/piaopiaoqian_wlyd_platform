@@ -2,7 +2,7 @@
 <view class='search-scan'>
   <image class='search-bg' mode="widthFix" src='../../images/scanbg.png'></image>
   <view class='search-info'>
-    <input placeholder-style="color:#fff;" confirm-type="search" placeholder='扫描/输入运单查询' bindconfirm="confirmInput"></input>
+    <input placeholder-style="color:#fff;" confirm-type="search" placeholder='扫描/输入运单号' bindconfirm="confirmInput"></input>
   </view> 
   <image class='search-icon' src='../../images/scan.png' bindtap='scanShopOrder'></image>
 </view>
@@ -27,7 +27,8 @@
 </view>
 
 <scroll-view scroll-y class='order-content' wx:if="{{bookingOrders.length > 0}}" bindscrolltolower="lower">
-  <view class='order-list'>
+  <!-- <view class='order-list'> -->
+  <view>
     <view class='order-bar' wx:for="{{bookingOrders}}" wx:key="id" bindtap='toInfo' data-id="{{item.id}}" >
       <view class='order-bar-head'>
         <view class='order-bar-id'>订单号

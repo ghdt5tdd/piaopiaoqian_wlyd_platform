@@ -177,7 +177,7 @@ App({
         if(view) {
           const route = view.route
           //onShareAppMessage()返回undefined说明此页面没有做特定分享操作，则统一使用默认分享
-          if (view.onShareAppMessage() === undefined) {
+          if (!view.onShareAppMessage || view.onShareAppMessage() === undefined) {
             view.onShareAppMessage = function () {
               return default_setting
             }

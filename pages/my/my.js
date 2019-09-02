@@ -60,6 +60,7 @@ Page({
       app.bindMember(userInfo, () => {
         this.setData({
           bind: app.globalData.isBindPhone,
+          memberIsLoad: true,
           phone: app.globalData.memberInfo.phone
         })
       })

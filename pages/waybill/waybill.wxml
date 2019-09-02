@@ -7,25 +7,25 @@
   <view class='waybill-introduce'>
     <view class='waybill-introduce-item'>
       <view class='waybill-introduce-label'>运单号</view>
-      <view class='waybill-introduce-info'>{{shopOrderDetail.bill_no}}</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.bill_no || '无'}}</view>
     </view>
     <view class='waybill-introduce-item'>
       <view class='waybill-introduce-label'>托运区间</view>
       <view class='waybill-introduce-info'>
         <view class='waybill-introduce-route'>
-          <view class='waybill-introduce-point'>{{shopOrderDetail.consignment_station_name}}</view>
+          <view class='waybill-introduce-point'>{{shopOrderDetail.consignment_station_name || '无'}}</view>
           <image mode="widthFix" src="../../images/arrow.png"></image>
-          <view class='waybill-introduce-point'>{{shopOrderDetail.receiving_station_name}}</view>
+          <view class='waybill-introduce-point'>{{shopOrderDetail.receiving_station_name || '无'}}</view>
         </view>
       </view>
     </view>
     <view class='waybill-introduce-item'>
       <view class='waybill-introduce-label'>收货人</view>
-      <view class='waybill-introduce-info'>{{shopOrderDetail.consignee_name }} {{shopOrderDetail.consignee_tel}}</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.consignee_name || '无' }} {{shopOrderDetail.consignee_tel}}</view>
     </view>
     <view class='waybill-introduce-item'>
       <view class='waybill-introduce-label'>发货人</view>
-      <view class='waybill-introduce-info'>{{shopOrderDetail.consigner_name}} {{shopOrderDetail.consigner_tel }}</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.consigner_name || '无'}} {{shopOrderDetail.consigner_tel }}</view>
     </view>
 
   </view>
@@ -36,15 +36,15 @@
   <view class='waybill-introduce'>
     <view class='waybill-introduce-item'>
       <view class='waybill-introduce-label'>货物名称</view>
-      <view class='waybill-introduce-info'>{{shopOrderDetail.goods_name}}</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.goods_name || '无'}}</view>
     </view>
     <view class='waybill-introduce-item'>
       <view class='waybill-introduce-label'>件数</view>
-      <view class='waybill-introduce-info'>{{shopOrderDetail.total_packing_quantity}}件</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.total_packing_quantity || '0'}}件</view>
     </view>
     <view class='waybill-introduce-item'>
       <view class='waybill-introduce-label'>重量体积</view>
-      <view class='waybill-introduce-info'>{{shopOrderDetail.total_weight}}kg {{shopOrderDetail.total_volume}}m³</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.total_weight || '0'}}kg {{shopOrderDetail.total_volume || '0'}}m³</view>
     </view>
     <view class='waybill-introduce-item' wx:if="{{shoporderDetail.settlement_mode_text}}">
       <view class='waybill-introduce-label'>付款方式</view>
@@ -62,7 +62,7 @@
       </view>
     </view> -->
     <!-- <view class='waybill-introduce-item'>
-      <view class='waybill-introduce-label'>运单费用</view>
+      <view class='waybill-introduce-label'>运单费用</vi ew>
       <view class='waybill-introduce-info'>
         <text>运费 ¥{{freight}}</text>
         <text>送货费 ¥{{delivery}}</text>
@@ -70,7 +70,7 @@
     </view> -->
     <view class='waybill-introduce-item'>
       <view class='waybill-introduce-label'>备注信息</view>
-      <view class='waybill-introduce-info'>{{shopOrderDetail.remark}}</view>
+      <view class='waybill-introduce-info'>{{shopOrderDetail.remark || '无'}}</view>
     </view>
   </view>
 </view>

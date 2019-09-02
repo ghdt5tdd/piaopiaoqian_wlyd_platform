@@ -1,7 +1,7 @@
 <!--pages/recharge/recharge.wxml-->
   <view class="pay-total">
       <text>充值金额：</text>
-      <view><input name="payTotal" type="digit" value="{{amount}}"  placeholder="请输入您的充值金额" bindinput='bindAmount' focus="{{focus}}" /></view>   
+      <view><input name="payTotal" maxlength="6" type="digit" value="{{amount}}"  placeholder="请输入您的充值金额" bindinput='bindAmount' focus="{{focus}}" /></view>   
   </view>
  
   <view class="pay-num">

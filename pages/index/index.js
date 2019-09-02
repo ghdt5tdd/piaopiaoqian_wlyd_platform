@@ -198,6 +198,23 @@ Page({
 
   //跳转到订单详情
   toInfo: function (e) {
+    if (!app.globalData.userInfo) {
+      wx.showToast({
+        title: '请先去个人中心绑定账号！',
+        icon: 'none',
+        duration: 3000,
+      })
+      return;
+    }
+
+    if (!app.globalData.memberInfo.phone) {
+      wx.showToast({
+        title: '请先去个人中心绑定手机号码！',
+        icon: 'none',
+        duration: 3000,
+      })
+      return;
+    }
     wx.navigateTo({
       url: '../orderinfo/orderinfo?id=' + e.currentTarget.dataset.id
     })
@@ -207,21 +224,21 @@ Page({
   toSend: function(e) {
     if (!app.globalData.userInfo) {
       wx.showToast({
-        title: '请先去个人中心授权账号！',
+        title: '请先去个人中心绑定账号！',
         icon: 'none',
         duration: 3000,
       })
       return;
     }
 
-    // if (!app.globalData.memberInfo.phone) {
-    //   wx.showToast({
-    //     title: '请先去个人中心绑定手机号码！',
-    //     icon: 'none',
-    //     duration: 3000,
-    //   })
-    //   return;
-    // }
+    if (!app.globalData.memberInfo.phone) {
+      wx.showToast({
+        title: '请先去个人中心绑定手机号码！',
+        icon: 'none',
+        duration: 3000,
+      })
+      return;
+    }
 
     wx.navigateTo({
       url: '../send/send'
@@ -233,6 +250,15 @@ Page({
     if (!app.globalData.userInfo) {
       wx.showToast({
         title: '请先去个人中心绑定账号！',
+        icon: 'none',
+        duration: 3000,
+      })
+      return;
+    }
+
+    if (!app.globalData.memberInfo.phone) {
+      wx.showToast({
+        title: '请先去个人中心绑定手机号码！',
         icon: 'none',
         duration: 3000,
       })
@@ -364,6 +390,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    if (!app.globalData.userInfo) {
+      wx.showToast({
+        title: '请先去个人中心绑定账号！',
+        icon: 'none',
+        duration: 3000,
+      })
+      return;
+    }
     this.setTitle()
     this.setData({
       page: 1,
