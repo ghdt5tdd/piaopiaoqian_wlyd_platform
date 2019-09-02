@@ -45,7 +45,7 @@
 
         <view class='order-bar-cargo'>
           <view>货物类型：{{item.goods_class_name || '无'}}</view>
-          <view>货物件数：{{item.total_packing_quantity || '无'}}件</view>
+          <view>货物件数：{{item.total_packing_quantity || '0'}}件</view>
         </view>
         <!-- <view class='order-bar-cargo'>
           承运商：{{item.carrier_name}}

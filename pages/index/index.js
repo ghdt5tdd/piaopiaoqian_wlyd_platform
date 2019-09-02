@@ -390,14 +390,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (!app.globalData.userInfo) {
-      wx.showToast({
-        title: '请先去个人中心绑定账号！',
-        icon: 'none',
-        duration: 3000,
-      })
-      return;
-    }
     this.setTitle()
     this.setData({
       page: 1,
