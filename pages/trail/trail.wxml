@@ -13,11 +13,11 @@
         <view class='iconfont icon-deliver'></view>
       </view>
       <view class="trail-item-txt">
-        <view class="trail-item-status">{{item.node_content}}</view>
+        <view class="trail-item-status">{{item.node_state_text}}</view>
         <view class='trail-item-content'>
           <view class='trail-item-detail'>
             <view class='trail-item-point'></view>
-            <!-- <view class="trail-item-info">{{item.node_content}}</view> -->
+            <view class="trail-item-info">{{item.node_content}}</view>
             <view class="trail-item-time">{{item.create_date}}</view>
           </view>
         </view>
