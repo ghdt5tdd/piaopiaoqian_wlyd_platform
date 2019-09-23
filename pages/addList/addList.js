@@ -20,7 +20,7 @@ Page({
     select: 1,
     hasList: true,
     page: 1,
-    pageSize: 10,
+    pageSize: 20,
     loadCompleted: false,
     addressList: [],
   },

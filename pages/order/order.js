@@ -29,7 +29,7 @@ Page({
       value: 0
     }],
     page: 1,
-    pageSize: 10,
+    pageSize: 20,
     count: 0,
     loadCompleted: false,
     select: 1,

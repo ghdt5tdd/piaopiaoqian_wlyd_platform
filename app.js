@@ -160,7 +160,7 @@ App({
     this.globalData.appName = config.APP_NAME
     this.globalData.appModules = config.APP_MODULES
     this.globalData.shareSetting = config.SHARE_SETTING
-    ajax._config.platformAppArea = config.PLATFORM_APP_AREA
+    ajax.setPlatformAppArea(config.PLATFORM_APP_AREA)
   },
 
   setGlobalShareAppMessage() {

@@ -129,7 +129,7 @@ Page({
       open_id: app.globalData.openId,
       app_id: app.globalData.appId,
       form_id: prepay_id,
-      template_id: 'DTGvbIKR3jTMKI1YdlyqREpIUYlsm6pF6aNNACV63Rk',
+      template_id: app.globalData.templateMsgKey.paySuccess,
       template_data: JSON.stringify({
         keyword1: {
           value: app.globalData.memberInfo.user_nickname
@@ -138,7 +138,7 @@ Page({
           value: amount + ''
         },
         keyword3: {
-          value: util.getFormatDate(0)
+          value: util.formatDate()
         },
         keyword4: {
           value: outTradeNo

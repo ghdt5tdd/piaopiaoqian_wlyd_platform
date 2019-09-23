@@ -15,7 +15,7 @@
 <view class='forwarder-about-info'>
   <view class='forwarder-about-bar' bindtap='bookTel' data-tel="{{companyInfo.service_hotline}}">
     <image src='../../images/send-tel.png'></image>
-    <view>{{companyInfo.service_hotline}}</view>
+    <view class='orange'>{{companyInfo.service_hotline}}</view>
   </view>
   <view class='forwarder-about-bar'>
     <image src='../../images/send-by.png'></image>

@@ -1,7 +1,7 @@
 <!--pages/receiver/receiver.wxml-->
 <view class='search-head'>
   <view class='search-info'>
-    <input placeholder='输入货运单号查询' value="{{orderNo}}" bindinput='bindInput' bindconfirm="confirmInput"></input>
+    <input placeholder='输入货运单号查询' value="{{orderNo}}" confirm-type="search" bindinput='bindInput' bindconfirm="confirmInput"></input>
   </view>
 </view>
 

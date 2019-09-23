@@ -30,7 +30,7 @@ Page({
     selectStatus: 'all',
     shopOrders: [],
     page: 1,
-    pageSize: 10,
+    pageSize: 20,
     count: 0,
     loadCompleted: false,
     timelyArray: [{
@@ -216,7 +216,7 @@ Page({
       hideSign: false,
       selectOrder: this.data.shopOrders[index],
       selectIndex: index,
-      now: util.getFormatDate(1)
+      now: util.formatDate()
     }, () => {
       //有些运单没有预计到达时间，所以要判断，都改成及时
       let isTimely = 1

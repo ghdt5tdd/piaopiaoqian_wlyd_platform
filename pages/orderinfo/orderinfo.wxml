@@ -25,7 +25,7 @@
       <view class='orderinfo-line-info'>{{bookingOrder.consignee_man || '无'}}</view>
     </view>
     <view class='orderinfo-receive-line'>
-      <view class='orderinfo-line-label'>收货单位</view>
+      <view class='orderinfo-line-label'>联系单位</view>
       <view class='orderinfo-line-info'>{{bookingOrder.consignee_name || '无'}}</view>
     </view>
     <view class='orderinfo-receive-line'>

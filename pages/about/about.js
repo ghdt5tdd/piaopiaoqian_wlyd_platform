@@ -28,10 +28,12 @@ Page({
     if(location) {
       const longitude = Number(location.split(',')[0])
       const latitude = Number(location.split(',')[1])
-      const tLocation = coordtransform.wgs84togcj02(longitude, latitude)
+      // const tLocation = coordtransform.wgs84togcj02(longitude, latitude)
       wx.openLocation({
-        latitude: tLocation[1],
-        longitude: tLocation[0],
+        // latitude: tLocation[1],
+        // longitude: tLocation[0],
+        latitude,
+        longitude,
         address: address,
         scale: 28
       })

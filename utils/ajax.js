@@ -6,6 +6,13 @@ const _config = {
   platformAppArea: ''
 }
 
+function setPlatformAppArea(platformAppArea) {
+  if (_config.platformAppArea) {
+    return;
+  }
+  _config.platformAppArea = platformAppArea
+}
+
 function getApi(apiName, params, cb, isOwnAddress) {
   if (params) {
     params = filterNull(params)
@@ -88,5 +95,5 @@ function filterNull(o) {
 module.exports = {
   getApi,
   postApi,
-  _config
+  setPlatformAppArea
 }

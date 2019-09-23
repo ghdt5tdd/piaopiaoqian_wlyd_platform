@@ -44,6 +44,12 @@ Page({
     currentIndex: 0,
     currentTime: -1,
     timeArr: [{
+      "timeEnd": "07:00",
+      "overtime": false, //未超时可预约
+    }, {
+      "timeEnd": "09:00",
+      "overtime": false, //未超时可预约
+    }, {
       "timeEnd": "11:00",
       "overtime": false, //未超时可预约
     }, {
@@ -61,8 +67,10 @@ Page({
     }, {
       "timeEnd": "21:00",
       "overtime": false,
-    },],
-
+    }, {
+      "timeEnd": "23:00",
+      "overtime": false,
+    }],
     markFcous: false,
 
     hideRule: true,

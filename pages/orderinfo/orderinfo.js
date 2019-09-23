@@ -31,7 +31,7 @@ Page({
   },
 
   //拨打电话
-  call: function (e) {
+  call: function(e) {
     wx.makePhoneCall({
       phoneNumber: e.currentTarget.dataset.tel
     })
@@ -39,7 +39,7 @@ Page({
 
 
   //取消下单
-  cancel: function (e) {
+  cancel: function(e) {
     wx.showLoading({
       title: '取消中..',
       mask: true
@@ -59,7 +59,7 @@ Page({
           duration: 1000
         })
       }
-    })	
+    })
 
     // this.setData({
     //   hideShadow: false,
@@ -68,7 +68,7 @@ Page({
   },
 
   //选择取消原因
-  selectabolish: function (e) {
+  selectabolish: function(e) {
     var abolish = this.data.abolish
     var index = e.currentTarget.dataset.index
     for (var i = 0; i < abolish.length; i++) {
@@ -84,7 +84,7 @@ Page({
   },
 
   //确认取消原因
-  sure: function (e) {
+  sure: function(e) {
     if (this.data.selectabolish == "") {
       wx.showToast({
         title: '请选择取消原因！',
@@ -116,7 +116,7 @@ Page({
             duration: 1000
           })
         }
-      })	
+      })
 
     }
 
@@ -124,7 +124,7 @@ Page({
 
 
   //关闭弹窗
-  hide: function (e) {
+  hide: function(e) {
     this.setData({
       hideShadow: true,
       hideAbolish: true,
@@ -163,7 +163,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     const id = options.id
     this.getBookingOrderById(id)
   },
@@ -171,49 +171,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })
